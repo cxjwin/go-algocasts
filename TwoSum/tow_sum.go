@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// Pair two value struct
+// Pair - two value struct
 type Pair struct {
 	firest, second interface{}
 }
