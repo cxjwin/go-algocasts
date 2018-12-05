@@ -17,10 +17,11 @@ func (t *Tree) insert(v int, left bool) *Tree {
 	}
 	if left {
 		t.Left = t.Left.insert(v, true)
-	} else {
-		t.Right = t.Right.insert(v, false)
+		return t.Left
 	}
-	return t
+
+	t.Right = t.Right.insert(v, false)
+	return t.Right
 }
 
 func (t *Tree) description() {
@@ -38,9 +39,9 @@ func isSymmetric(l *Tree, r *Tree) bool {
 		return l.Value == r.Value &&
 			isSymmetric(l.Left, r.Right) &&
 			isSymmetric(l.Right, r.Left)
-	} else {
-		return l == nil && r == nil
 	}
+
+	return l == nil && r == nil
 }
 
 func isSymmetricTreeRecursive(t *Tree) bool {
