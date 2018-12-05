@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/golang-collections/collections/stack"
 )
 
 // Tree - tree struct
@@ -52,6 +54,48 @@ func isSymmetricTreeRecursive(t *Tree) bool {
 	return isSymmetric(t.Left, t.Right)
 }
 
+func isSymmetricTreeIterative(t *Tree) bool {
+	if t == nil {
+		return true
+	}
+
+	s := new(stack.Stack)
+	s.Push(t.Left)
+	s.Push(t.Right)
+
+	for s.Len() != 0 {
+		l := s.Pop()
+		r := s.Pop()
+		if l == nil && r == nil {
+			continue
+		}
+
+		if l == nil || r == nil {
+			return false
+		}
+
+		tl := l.(*Tree)
+		tr := r.(*Tree)
+		if tl.Value != tr.Value {
+			return false
+		}
+		if tl.Left != nil {
+			s.Push(tl.Left)
+		}
+		if tr.Right != nil {
+			s.Push(tr.Right)
+		}
+		if tl.Right != nil {
+			s.Push(tl.Right)
+		}
+		if tr.Left != nil {
+			s.Push(tr.Left)
+		}
+	}
+
+	return true
+}
+
 func main() {
 	root := Tree{nil, 1, nil}
 
@@ -69,5 +113,6 @@ func main() {
 	root.description()
 
 	// check
-	fmt.Printf("tree is symmetric %v", isSymmetricTreeRecursive(&root))
+	fmt.Printf("recursive - tree is symmetric %v\n", isSymmetricTreeRecursive(&root))
+	fmt.Printf("iterative - tree is symmetric %v\n", isSymmetricTreeIterative(&root))
 }
