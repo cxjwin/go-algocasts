@@ -1,8 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
+package algo
 
 // 是否是字母或数字
 func isAlphanumeric(r byte) bool {
@@ -46,12 +42,4 @@ func isPalindrome(s string) bool {
 	}
 
 	return true
-}
-
-func main() {
-	s1 := "A man, a plan, a canal: Panama"
-	fmt.Printf("s1 is palindrome? %t\n", isPalindrome(s1))
-
-	s2 := "race a car"
-	fmt.Printf("s2 is palindrome? %t\n", isPalindrome(s2))
 }

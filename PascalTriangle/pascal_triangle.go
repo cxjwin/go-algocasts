@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package algo
 
 func makePascalTriangle(numRows int) [][]int {
 	if numRows < 1 {
@@ -23,12 +21,4 @@ func makePascalTriangle(numRows int) [][]int {
 	}
 
 	return res
-}
-
-func main() {
-	numRows := 5
-	res := makePascalTriangle(numRows)
-	for _, v := range res {
-		fmt.Println(v)
-	}
 }

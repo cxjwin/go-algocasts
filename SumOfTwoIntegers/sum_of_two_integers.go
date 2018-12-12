@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package algo
 
 func getSumRecusive(a int, b int) int {
 	if b == 0 {
@@ -18,12 +16,4 @@ func getSumInterative(a int, b int) int {
 		carry = (tmp & carry) << 1
 	}
 	return sum
-}
-
-func main() {
-	a, b := 1, 2
-	fmt.Printf("recusive - res : %v\n", getSumRecusive(a, b))
-
-	a, b = 9, 11
-	fmt.Printf("interative - res : %v\n", getSumInterative(a, b))
 }

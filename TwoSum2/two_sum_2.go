@@ -1,10 +1,8 @@
-package main
-
-import "fmt"
+package algo
 
 // Pair - two value struct
 type Pair struct {
-	firest, second interface{}
+	first, second interface{}
 }
 
 func getTwoNumSumToGivenValue(nums []int, target int) Pair {
@@ -23,10 +21,4 @@ func getTwoNumSumToGivenValue(nums []int, target int) Pair {
 	}
 
 	return Pair{-1, -1}
-}
-
-func main() {
-	nums := []int{2, 7, 11, 15}
-	res := getTwoNumSumToGivenValue(nums, 9)
-	fmt.Printf("find indexes : %v\n", res)
 }
