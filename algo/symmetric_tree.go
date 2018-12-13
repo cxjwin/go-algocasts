@@ -1,10 +1,12 @@
 package algo
 
+import "github.com/cxjwin/go-algocasts/datastructure"
+
 import (
 	"github.com/golang-collections/collections/stack"
 )
 
-func isSymmetric(l *Tree, r *Tree) bool {
+func isSymmetric(l *ds.Tree, r *ds.Tree) bool {
 	if l != nil && r != nil {
 		return l.Value == r.Value &&
 			isSymmetric(l.Left, r.Right) &&
@@ -14,7 +16,7 @@ func isSymmetric(l *Tree, r *Tree) bool {
 	return l == nil && r == nil
 }
 
-func isSymmetricTreeRecursive(t *Tree) bool {
+func isSymmetricTreeRecursive(t *ds.Tree) bool {
 	if t == nil {
 		return true
 	}
@@ -22,7 +24,7 @@ func isSymmetricTreeRecursive(t *Tree) bool {
 	return isSymmetric(t.Left, t.Right)
 }
 
-func isSymmetricTreeIterative(t *Tree) bool {
+func isSymmetricTreeIterative(t *ds.Tree) bool {
 	if t == nil {
 		return true
 	}
@@ -42,8 +44,8 @@ func isSymmetricTreeIterative(t *Tree) bool {
 			return false
 		}
 
-		tl := l.(*Tree)
-		tr := r.(*Tree)
+		tl := l.(*ds.Tree)
+		tr := r.(*ds.Tree)
 		if tl.Value != tr.Value {
 			return false
 		}
