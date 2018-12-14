@@ -93,3 +93,40 @@ func TestIsPalindrome(t *testing.T) {
 		t.Error("s2 is not palindrome")
 	}
 }
+
+func TestSameTree1(t *testing.T) {
+	t1 := ds.Tree{Left: nil, Value: 1, Right: nil}
+	t1.Insert(2, true)
+	t1.Insert(3, false)
+
+	t2 := ds.Tree{Left: nil, Value: 1, Right: nil}
+	t2.Insert(2, true)
+	t2.Insert(3, false)
+
+	res := isSameTreeRecusive(&t1, &t2)
+	if !res {
+		t.Error("Recusive : t1 is same with t2")
+	}
+	res = isSameTreeIterative(&t1, &t2)
+	if !res {
+		t.Error("Iterative : t1 is same with t2")
+	}
+}
+func TestSameTree2(t *testing.T) {
+	t1 := ds.Tree{Left: nil, Value: 1, Right: nil}
+	t1.Insert(2, true)
+	t1.Insert(1, false)
+
+	t2 := ds.Tree{Left: nil, Value: 1, Right: nil}
+	t2.Insert(1, true)
+	t2.Insert(2, false)
+
+	res := isSameTreeRecusive(&t1, &t2)
+	if res {
+		t.Error("Recusive : t1 is not same with t2")
+	}
+	res = isSameTreeIterative(&t1, &t2)
+	if res {
+		t.Error("Iterative : t1 is not same with t2")
+	}
+}
