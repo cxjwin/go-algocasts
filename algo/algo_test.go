@@ -130,3 +130,60 @@ func TestSameTree2(t *testing.T) {
 		t.Error("Iterative : t1 is not same with t2")
 	}
 }
+
+func TestReverseLinkedListInterative(t *testing.T) {
+	list := &ds.List{Head: nil, Tail: nil}
+	list.Insert(1)
+	list.Insert(2)
+	list.Insert(3)
+	list.Insert(4)
+	list.Insert(5)
+	list.Insert(6)
+	list.Desc()
+
+	fmt.Println("========== line ==========")
+
+	list = reverseListIterative(list)
+
+	if list.Head.Value != 6 {
+		t.Error("Reversed list's head is 6")
+	}
+
+	if list.Tail.Value != 1 {
+		t.Error("Reversed list's tail is 1")
+	}
+
+	if list.Tail.Next != nil {
+		t.Error("Reversed tail's next is nil")
+	}
+
+	list.Desc()
+}
+func TestReverseLinkedListRecursive(t *testing.T) {
+	list := &ds.List{Head: nil, Tail: nil}
+	list.Insert(1)
+	list.Insert(2)
+	list.Insert(3)
+	list.Insert(4)
+	list.Insert(5)
+	list.Insert(6)
+	list.Desc()
+
+	fmt.Println("========== line ==========")
+
+	reverseListRecursive(list)
+
+	if list.Head.Value != 6 {
+		t.Error("Reversed list's head is 6")
+	}
+
+	if list.Tail.Value != 1 {
+		t.Error("Reversed list's tail is 1")
+	}
+
+	if list.Tail.Next != nil {
+		t.Error("Reversed tail's next is nil")
+	}
+
+	list.Desc()
+}

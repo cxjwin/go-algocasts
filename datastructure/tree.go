@@ -5,12 +5,12 @@ import "fmt"
 // Tree - tree struct
 type Tree struct {
 	Left  *Tree
-	Value int
+	Value interface{}
 	Right *Tree
 }
 
 // Insert - insert node to tree
-func (t *Tree) Insert(v int, left bool) *Tree {
+func (t *Tree) Insert(v interface{}, left bool) *Tree {
 	if t == nil {
 		return &Tree{nil, v, nil}
 	}
