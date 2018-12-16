@@ -9,6 +9,11 @@ type Tree struct {
 	Right *Tree
 }
 
+// NewTree - new a tree point
+func NewTree(v interface{}) *Tree {
+	return &Tree{nil, v, nil}
+}
+
 // Insert - insert node to tree
 func (t *Tree) Insert(v interface{}, left bool) *Tree {
 	if t == nil {
