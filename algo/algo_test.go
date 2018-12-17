@@ -187,3 +187,30 @@ func TestReverseLinkedListRecursive(t *testing.T) {
 
 	list.Desc()
 }
+
+func TestPow(t *testing.T) {
+	n := pow(2, 4)
+	if n != 16 {
+		t.Error("pow(2, 4) is 16")
+	}
+	fmt.Println(n)
+
+	n = pow(2, -4)
+	if n != 0.0625 {
+		t.Error("pow(2, -4) is 1/16")
+	}
+	fmt.Println(n)
+}
+func TestPowFast(t *testing.T) {
+	n := powFast(2, 4)
+	if n != 16 {
+		t.Error("pow(2, 4) is 16")
+	}
+	fmt.Println(n)
+
+	n = powFast(2, -4)
+	if n != 0.0625 {
+		t.Error("pow(2, -4) is 1/16")
+	}
+	fmt.Println(n)
+}
