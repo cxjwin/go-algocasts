@@ -214,3 +214,20 @@ func TestPowFast(t *testing.T) {
 	}
 	fmt.Println(n)
 }
+
+func TestPermutations(t *testing.T) {
+	nums := []int{1, 2, 3, 4, 5}
+	res := permutations(nums)
+
+	length := factorial(5)
+
+	if res.Len() != length {
+		t.Error("the number of results is 120(5!)")
+	}
+
+	e := res.Front()
+	for i := 0; i < res.Len(); i++ {
+		fmt.Println(e.Value)
+		e = e.Next()
+	}
+}
