@@ -231,3 +231,17 @@ func TestPermutations(t *testing.T) {
 		e = e.Next()
 	}
 }
+
+func TestPalindromicSubstringsDynamicProgramming(t *testing.T) {
+	str := "abc"
+	count := countPalindromicSubstringsDynamicProgramming(str)
+	if count != 3 {
+		t.Error("'abc' count is 3")
+	}
+
+	str = "aaa"
+	count = countPalindromicSubstringsDynamicProgramming(str)
+	if count != 6 {
+		t.Error("'aaa' count is 6")
+	}
+}
