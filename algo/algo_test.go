@@ -232,7 +232,7 @@ func TestPermutations(t *testing.T) {
 	}
 }
 
-func TestPalindromicSubstringsDynamicProgramming(t *testing.T) {
+func TestCountPalindromicSubstringsDynamicProgramming(t *testing.T) {
 	str := "abc"
 	count := countPalindromicSubstringsDynamicProgramming(str)
 	if count != 3 {
@@ -243,5 +243,45 @@ func TestPalindromicSubstringsDynamicProgramming(t *testing.T) {
 	count = countPalindromicSubstringsDynamicProgramming(str)
 	if count != 6 {
 		t.Error("'aaa' count is 6")
+	}
+}
+func TestCountPalindromicSubstringsExpand(t *testing.T) {
+	str := "abc"
+	count := countPalindromicSubstringsExpand(str)
+	if count != 3 {
+		t.Error("'abc' count is 3")
+	}
+
+	str = "aaa"
+	count = countPalindromicSubstringsExpand(str)
+	if count != 6 {
+		t.Error("'aaa' count is 6")
+	}
+}
+
+func TestIsPalindromeNumberUseString(t *testing.T) {
+	num := 121
+	res := isPalindromeNumberUseString(num)
+	if !res {
+		t.Error("121 is palindrome number")
+	}
+
+	num = -121
+	res = isPalindromeNumberUseString(num)
+	if res {
+		t.Error("-121 is not palindrome number")
+	}
+}
+func TestIsPalindromeNumber(t *testing.T) {
+	num := 121
+	res := isPalindromeNumber(num)
+	if !res {
+		t.Error("121 is palindrome number")
+	}
+
+	num = -121
+	res = isPalindromeNumber(num)
+	if res {
+		t.Error("-121 is not palindrome number")
 	}
 }
