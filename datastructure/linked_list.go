@@ -10,6 +10,7 @@ type Node struct {
 
 // List - list
 type List struct {
+	Len  int
 	Head *Node
 	Tail *Node
 }
@@ -20,6 +21,7 @@ func (list *List) Insert(v interface{}) *List {
 		node := Node{Value: v, Next: nil}
 		list.Head = &node
 		list.Tail = list.Head
+		list.Len = 1
 		return list
 	}
 
@@ -28,7 +30,7 @@ func (list *List) Insert(v interface{}) *List {
 	tail := list.Tail
 	tail.Next = &node
 	list.Tail = tail.Next
-
+	list.Len++
 	return list
 }
 

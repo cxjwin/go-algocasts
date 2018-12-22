@@ -285,3 +285,55 @@ func TestIsPalindromeNumber(t *testing.T) {
 		t.Error("-121 is not palindrome number")
 	}
 }
+
+func TestIsPalindromeLinkedListUsingStack(t *testing.T) {
+	type testFunc func(list *ds.List) bool
+
+	isPalindromeLinkedList := func(f testFunc, t *testing.T) {
+		list := &ds.List{Head: nil, Tail: nil}
+		list.Insert(1)
+		list.Insert(2)
+		list.Desc()
+
+		res := f(list)
+		if res {
+			t.Error("'1 -> 2' is not palindrome linked list")
+		}
+
+		fmt.Println("========== line ==========")
+
+		list = &ds.List{Head: nil, Tail: nil}
+		list.Insert(1)
+		list.Insert(2)
+		list.Insert(2)
+		list.Insert(1)
+		list.Desc()
+
+		res = f(list)
+
+		if !res {
+			t.Error("'1 -> 2 -> 2 -> 1' is not palindrome linked list")
+		}
+
+		fmt.Println("========== line ==========")
+
+		list = &ds.List{Head: nil, Tail: nil}
+		list.Insert(1)
+		list.Insert(2)
+		list.Insert(3)
+		list.Insert(2)
+		list.Insert(1)
+		list.Desc()
+
+		res = f(list)
+
+		if !res {
+			t.Error("'1 -> 2 -> 3 -> 2 -> 1' is not palindrome linked list")
+		}
+	}
+
+	fmt.Println("========== stack ==========")
+	isPalindromeLinkedList(isPalindromeLinkedListUsingStack, t)
+	fmt.Println("========== reverse ==========")
+	isPalindromeLinkedList(isPalindromeReverseLinkedList, t)
+}

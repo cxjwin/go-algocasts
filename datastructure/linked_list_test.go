@@ -5,7 +5,7 @@ import (
 )
 
 func TestLinkedList(t *testing.T) {
-	list := List{nil, nil}
+	list := List{0, nil, nil}
 	list.Insert(1)
 	list.Insert(2)
 	list.Insert(3)
@@ -14,6 +14,11 @@ func TestLinkedList(t *testing.T) {
 	list.Insert(6)
 
 	head := list.Head
+
+	if list.Len != 6 {
+		t.Error("list's len is 6")
+	}
+
 	if head.Value != 1 {
 		t.Error("list's head is 1")
 	}
