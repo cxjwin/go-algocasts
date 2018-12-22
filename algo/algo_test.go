@@ -287,7 +287,7 @@ func TestIsPalindromeNumber(t *testing.T) {
 }
 
 func TestIsPalindromeLinkedListUsingStack(t *testing.T) {
-	type testFunc func(list *ds.List) bool
+	type testFunc func(*ds.List) bool
 
 	isPalindromeLinkedList := func(f testFunc, t *testing.T) {
 		list := &ds.List{Head: nil, Tail: nil}
@@ -336,4 +336,35 @@ func TestIsPalindromeLinkedListUsingStack(t *testing.T) {
 	isPalindromeLinkedList(isPalindromeLinkedListUsingStack, t)
 	fmt.Println("========== reverse ==========")
 	isPalindromeLinkedList(isPalindromeReverseLinkedList, t)
+}
+
+func TestMissingNumber(t *testing.T) {
+	type testFunc func([]int) int
+
+	missingNumber := func(f testFunc, t *testing.T) {
+		nums := []int{3, 0, 1}
+		res := f(nums)
+		if res != 2 {
+			t.Error("missing number is 2")
+		}
+
+		nums = []int{9, 6, 4, 2, 3, 5, 7, 0, 1, 8}
+		res = f(nums)
+		if res != -1 {
+			t.Error("no missing number")
+		}
+
+		nums = []int{9, 6, 4, 2, 3, 5, 7, 0, 1}
+		res = f(nums)
+		if res != 8 {
+			t.Error("missing number is 8")
+		}
+	}
+
+	fmt.Println("========== sort ==========")
+	missingNumber(missingNumberUsingSort, t)
+	fmt.Println("========== XOR ==========")
+	missingNumber(missingNumberUsingXOR, t)
+	fmt.Println("========== sum ==========")
+	missingNumber(missingNumberUsingSum, t)
 }
