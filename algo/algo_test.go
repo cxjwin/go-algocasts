@@ -368,3 +368,26 @@ func TestMissingNumber(t *testing.T) {
 	fmt.Println("========== sum ==========")
 	missingNumber(missingNumberUsingSum, t)
 }
+
+func TestMinmumDepthOfBindaryTree(t *testing.T) {
+	type testFunc func(*ds.Tree) int
+
+	innerFunc := func(f testFunc, t *testing.T) {
+		root := ds.NewTree(1)
+		root.Insert(9, true)
+		node := root.Insert(20, false)
+		node.Insert(15, true)
+		node.Insert(7, false)
+		root.Desc()
+
+		res := f(root)
+		if res != 2 {
+			t.Error("min depth is 2")
+		}
+	}
+
+	fmt.Println("========== recursive ==========")
+	innerFunc(minDepthOfBinaryTreeRecursive, t)
+	fmt.Println("========== iterative ==========")
+	innerFunc(minDepthOfBinaryTreeIterative, t)
+}
