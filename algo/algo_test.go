@@ -221,14 +221,13 @@ func TestPermutations(t *testing.T) {
 
 	length := factorial(5)
 
-	if res.Len() != length {
+	if len(res) != length {
 		t.Error("the number of results is 120(5!)")
 	}
 
-	e := res.Front()
-	for i := 0; i < res.Len(); i++ {
-		fmt.Println(e.Value)
-		e = e.Next()
+	// print result
+	for _, v := range res {
+		fmt.Println(v)
 	}
 }
 

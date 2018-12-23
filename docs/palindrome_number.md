@@ -1,4 +1,5 @@
 https://leetcode.com/problems/palindrome-number/
+https://leetcode-cn.com/problems/palindrome-number/
 
 9. Palindrome Number
 

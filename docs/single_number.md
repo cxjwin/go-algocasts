@@ -1,4 +1,5 @@
 https://leetcode.com/problems/single-number/
+https://leetcode-cn.com/problems/single-number/
 
 Single Number
 
