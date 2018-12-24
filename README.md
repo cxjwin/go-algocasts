@@ -37,9 +37,9 @@ The first phase is prepared to follow the video to complete 100 questions.
 - go version go1.10.3 darwin/amd64
 - Visual Studio Code 1.30.0
 
-## 3rd lib
+## Third Party Libraries
 
-- github.com/golang-collections/collections
+- https://github.com/golang-collections/collections
 
 ## Usage
 
