@@ -1,42 +1,65 @@
 # go-algocasts
 
-## 项目简介
+AlgoCasts courses golang implementation, video courses
+link: https://algocasts.io.  
+The first phase is prepared to follow the video to complete 100 questions.
 
-AlgoCasts 教程 go 语言实现, 视频教程地址: https://algocasts.io.
-主要练手算法及学习 golang 使用, 第一期准备跟着视频做满 100 题.
+## Features
 
-## 功能特性
+1. Follow the video to complete 100 questions
+2. Question description from leetcode
+3. Useful data structure
+4. Unit Test
 
-1. 根据 Plan 100 的内容更新代码
-2. 附上 LeetCode 原题链接
-3. 除了视频中介绍的解法, 会尝试别的解法(部分)
-4. 每个算法都经过简单的单测
-5. 部分数据结构实现
+## Algorithms (completed)
 
-## 环境依赖
+- [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
+- [Missing Number](https://leetcode.com/problems/missing-number/)
+- [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
+- [Palindrome Number](https://leetcode.com/problems/palindrome-number/)
+- [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
+- [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)
+- [Permutations](https://leetcode.com/problems/permutations/)
+- [Pow(x, n)](https://leetcode.com/problems/powx-n/)
+- [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+- [Same Tree](https://leetcode.com/problems/same-tree/)
+- [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/)
+- [Single Number](https://leetcode.com/problems/single-number/)
+- [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)
+- [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)
+- [Two Sum](https://leetcode.com/problems/two-sum/)
+- [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
+- [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 
-go version go1.10.3 darwin/amd64
+## Development environment
 
-vscode 1.30.0
+- macOS 10.14.2
+- go version go1.10.3 darwin/amd64
+- Visual Studio Code 1.30.0
 
-## 库依赖
+## 3rd lib
 
-github.com/golang-collections/collections
+- github.com/golang-collections/collections
 
-## 目录结构描述
+## Usage
+
+1. Clone https://github.com/cxjwin/go-algocasts.git repo, it must be in your $GOPATH.
+2. Goto 'algo' Directory, run 'algo_test.go' to test all algorithms code.
+
+## Directory Structure
 
 ### algo
 
-algorithm source code & test code
+Algorithms source code & test code
 
 ### datastructure
 
-some data structure to use in algorithm source code
+Some data structure to use in algorithm source code
 
 ### docs
 
-problem description
+Question description
 
-## 协议
+## LICENSE
 
 MIT
