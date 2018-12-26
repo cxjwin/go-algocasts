@@ -13,6 +13,8 @@ The first phase is prepared to follow the video to complete 100 questions.
 
 ## Algorithms (completed)
 
+- [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
+- [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 - [Min Stack](https://leetcode.com/problems/min-stack/)
 - [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
 - [Missing Number](https://leetcode.com/problems/missing-number/)
