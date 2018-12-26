@@ -390,3 +390,36 @@ func TestMinmumDepthOfBindaryTree(t *testing.T) {
 	fmt.Println("========== iterative ==========")
 	innerFunc(minDepthOfBinaryTreeIterative, t)
 }
+
+func TestMinStack(t *testing.T) {
+	s := Constructor()
+	s.Push(-2)
+	s.Push(0)
+	s.Push(-3)
+	if s.GetMin() != -3 {
+		t.Error("min number is -3")
+	}
+	s.Pop()
+	if s.Top() != 0 {
+		t.Error("top number is 0")
+	}
+	if s.GetMin() != -2 {
+		t.Error("min number is -2")
+	}
+}
+func TestMinStack2(t *testing.T) {
+	s := Constructor2()
+	s.Push(-2)
+	s.Push(0)
+	s.Push(-3)
+	if s.GetMin() != -3 {
+		t.Error("min number is -3")
+	}
+	s.Pop()
+	if s.Top() != 0 {
+		t.Error("top number is 0")
+	}
+	if s.GetMin() != -2 {
+		t.Error("min number is -2")
+	}
+}
