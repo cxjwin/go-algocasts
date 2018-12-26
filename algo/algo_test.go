@@ -423,3 +423,37 @@ func TestMinStack2(t *testing.T) {
 		t.Error("min number is -2")
 	}
 }
+
+func TestMergeTwoSortedList(t *testing.T) {
+	l := &ds.ListNode{Value: 1, Next: nil}
+	l1 := &ds.ListNode{Value: 3, Next: l}
+	l.Next = l1
+	l2 := &ds.ListNode{Value: 5, Next: l1}
+	l1.Next = l2
+	l2.Next = nil
+
+	r := &ds.ListNode{Value: 2, Next: nil}
+	r1 := &ds.ListNode{Value: 4, Next: r}
+	r.Next = r1
+	r2 := &ds.ListNode{Value: 6, Next: r1}
+	r1.Next = r2
+	r2.Next = nil
+
+	res := mergeTwoSortedList(l, r)
+
+	arr := []int{}
+	for res != nil {
+		arr = append(arr, res.Value.(int))
+		res = res.Next
+	}
+
+	if len(arr) != 6 {
+		t.Error("list len is 6")
+	}
+
+	for i, v := range arr {
+		if v != i+1 {
+			t.Error("merged list should be sorted")
+		}
+	}
+}

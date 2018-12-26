@@ -47,7 +47,7 @@ func isPalindromeReverseLinkedList(list *ds.List) bool {
 
 	mid := list.Len / 2
 
-	var pre *ds.Node
+	var pre *ds.ListNode
 	cur := list.Head
 	idx := 0
 	// iterate first half

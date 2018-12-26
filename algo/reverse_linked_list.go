@@ -2,7 +2,7 @@ package algo
 
 import "github.com/cxjwin/go-algocasts/datastructure"
 
-func reverseListNodeRecursive(node *ds.Node) *ds.Node {
+func reverseListNodeRecursive(node *ds.ListNode) *ds.ListNode {
 	if node == nil || node.Next == nil {
 		return node
 	}
@@ -33,7 +33,7 @@ func reverseListIterative(list *ds.List) *ds.List {
 	list.Tail = list.Head
 
 	cur := list.Head
-	var pre *ds.Node
+	var pre *ds.ListNode
 
 	for cur != nil {
 		next := cur.Next
