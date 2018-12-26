@@ -13,6 +13,7 @@ The first phase is prepared to follow the video to complete 100 questions.
 
 ## Algorithms (completed)
 
+- [Min Stack](https://leetcode.com/problems/min-stack/)
 - [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
 - [Missing Number](https://leetcode.com/problems/missing-number/)
 - [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
