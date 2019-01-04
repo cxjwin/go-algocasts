@@ -469,3 +469,33 @@ func TestMergeSortedArray(t *testing.T) {
 		}
 	}
 }
+
+func TestLURCache(t *testing.T) {
+	cache := LRUCacheConstructor(2)
+
+	cache.Put(1, 1)
+	cache.Put(2, 2)
+
+	v := cache.Get(1) // returns 1
+	if v != 1 {
+		t.Error("returns 1")
+	}
+	cache.Put(3, 3)  // evicts key 2
+	v = cache.Get(2) // returns -1 (not found)
+	if v != -1 {
+		t.Error("returns -1 (not found)")
+	}
+	cache.Put(4, 4)  // evicts key 1
+	v = cache.Get(1) // returns -1 (not found)
+	if v != -1 {
+		t.Error("returns -1 (not found)")
+	}
+	v = cache.Get(3) // returns 3
+	if v != 3 {
+		t.Error("returns 3")
+	}
+	v = cache.Get(4) // returns 4
+	if v != 4 {
+		t.Error("returns 4")
+	}
+}
