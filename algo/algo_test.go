@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"testing"
 )
+
 import "github.com/cxjwin/go-algocasts/datastructure"
 
 func TestPascalTriangle(t *testing.T) {
@@ -497,5 +498,22 @@ func TestLURCache(t *testing.T) {
 	v = cache.Get(4) // returns 4
 	if v != 4 {
 		t.Error("returns 4")
+	}
+}
+
+func TestMedianOfTwoSortedArrays(t *testing.T) {
+	nums1 := []int{1, 3}
+	nums2 := []int{2}
+
+	res := medianOfTwoSortedArrays(nums1, nums2)
+	if res != 2.0 {
+		t.Error("median is 2.0")
+	}
+
+	nums1 = []int{1, 2}
+	nums2 = []int{3, 4}
+	res = medianOfTwoSortedArrays(nums1, nums2)
+	if res != 2.5 {
+		t.Error("median is 2.5")
 	}
 }

@@ -2,15 +2,9 @@ package algo
 
 import (
 	"github.com/cxjwin/go-algocasts/datastructure"
+	"github.com/cxjwin/go-algocasts/utils"
 	"github.com/golang-collections/collections/queue"
 )
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
 
 func minDepthOfBinaryTreeRecursive(tree *ds.Tree) int {
 	if tree == nil {
@@ -29,7 +23,7 @@ func minDepthOfBinaryTreeRecursive(tree *ds.Tree) int {
 		return minDepthOfBinaryTreeRecursive(tree.Right) + 1
 	}
 
-	return min(minDepthOfBinaryTreeRecursive(tree.Left), minDepthOfBinaryTreeRecursive(tree.Right)) + 1
+	return utils.IntMin(minDepthOfBinaryTreeRecursive(tree.Left), minDepthOfBinaryTreeRecursive(tree.Right)) + 1
 }
 
 func minDepthOfBinaryTreeIterative(tree *ds.Tree) int {
