@@ -517,3 +517,11 @@ func TestMedianOfTwoSortedArrays(t *testing.T) {
 		t.Error("median is 2.5")
 	}
 }
+
+func TestMaximunSubarray(t *testing.T) {
+	nums := []int{-2, 1, -3, 4, -1, 2, 1, -5, 4}
+	res := maxSubArray(nums)
+	if res != 6 {
+		t.Error("max sum of subarray is 6")
+	}
+}
