@@ -525,3 +525,26 @@ func TestMaximunSubarray(t *testing.T) {
 		t.Error("max sum of subarray is 6")
 	}
 }
+
+func TestMaximumDepthOfBinaryTree(t *testing.T) {
+	type testFunc func(root *ds.Tree) int
+
+	testBody := func(f testFunc, t *testing.T) {
+		root := ds.NewTree(3)
+		root.Insert(9, true)
+		node := root.Insert(20, false)
+		node.Insert(15, true)
+		node.Insert(7, false)
+		root.Desc()
+
+		res := f(root)
+		if res != 3 {
+			t.Error("max depth is 3")
+		}
+	}
+
+	fmt.Println("========== recursive ==========")
+	testBody(maxDepthOfBinaryTree, t)
+	fmt.Println("========== iterative ==========")
+	testBody(maxDepthOfBinaryTreeIterative, t)
+}
