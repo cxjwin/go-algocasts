@@ -13,12 +13,14 @@ The first phase is prepared to follow the video to complete 100 questions.
 
 ## Algorithms (completed)
 
-- [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
-- [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
-- [Min Stack](https://leetcode.com/problems/min-stack/)
-- [Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
-- [Missing Number](https://leetcode.com/problems/missing-number/)
-- [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
+[algo]: https://github.com/cxjwin/go-algocasts/blob/master/algo
+
+- [Merge Sorted Array]([algo]/merge_sorted_array.go)
+- [Merge Two Sorted Lists](https://github.com/cxjwin/go-algocasts/blob/master/algo/merge_two_sorted_lists.go)
+- [Min Stack](https://github.com/cxjwin/go-algocasts/blob/master/algo/min_stack.go)
+- [Minimum Depth of Binary Tree](https://github.com/cxjwin/go-algocasts/blob/master/algo/minimum_depth_of_binary_tree.go)
+- [Missing Number](https://github.com/cxjwin/go-algocasts/blob/master/algo/missing_number.go)
+- [Palindrome Linked List](https://github.com/cxjwin/go-algocasts/blob/master/algo/palindrome_linked_list.go)
 - [Palindrome Number](https://leetcode.com/problems/palindrome-number/)
 - [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
 - [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)

@@ -548,3 +548,24 @@ func TestMaximumDepthOfBinaryTree(t *testing.T) {
 	fmt.Println("========== iterative ==========")
 	testBody(maxDepthOfBinaryTreeIterative, t)
 }
+
+func TestMajorityElement(t *testing.T) {
+	type testFunc func([]int) int
+
+	testBody := func(f testFunc, t *testing.T) {
+		nums := []int{3, 2, 3}
+		res := f(nums)
+		if res != 3 {
+			t.Error("1 : result is 3")
+		}
+
+		nums = []int{2, 2, 1, 1, 1, 2, 2}
+		res = f(nums)
+		if res != 2 {
+			t.Error("2 : result is 2")
+		}
+	}
+
+	testBody(majorityElementWithMap, t)
+	testBody(majorityElement, t)
+}
