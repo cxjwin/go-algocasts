@@ -569,3 +569,30 @@ func TestMajorityElement(t *testing.T) {
 	testBody(majorityElementWithMap, t)
 	testBody(majorityElement, t)
 }
+
+func TestLengthOfLongestSubstring(t *testing.T) {
+	type testFunc func(s string) int
+
+	testBody := func(f testFunc, t *testing.T) {
+		s := "abcabcbb"
+		res := f(s)
+		if res != 3 {
+			t.Error("length is 3")
+		}
+
+		s = "bbbbb"
+		res = f(s)
+		if res != 1 {
+			t.Error("length is 1")
+		}
+
+		s = "pwwkew"
+		res = f(s)
+		if res != 3 {
+			t.Error("length is 3")
+		}
+	}
+
+	testBody(lengthOfLongestSubstring2N, t)
+	testBody(lengthOfLongestSubstring1N, t)
+}
