@@ -591,6 +591,12 @@ func TestLengthOfLongestSubstring(t *testing.T) {
 		if res != 3 {
 			t.Error("length is 3")
 		}
+
+		s = "abba"
+		res = f(s)
+		if res != 2 {
+			t.Error("length is 2")
+		}
 	}
 
 	testBody(lengthOfLongestSubstring2N, t)

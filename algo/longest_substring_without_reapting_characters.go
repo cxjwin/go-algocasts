@@ -34,7 +34,9 @@ func lengthOfLongestSubstring1N(s string) int {
 	for j := 0; j < l; j++ {
 		idx, ok := indexMap[s[j]]
 		if ok {
-			i = idx + 1
+			if idx+1 > i {
+				i = idx + 1
+			}
 		}
 		curLen := j - i + 1
 		if curLen > maxLen {
