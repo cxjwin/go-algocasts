@@ -1,15 +1,11 @@
 package sort
 
-func bubbleSort(nums []int) []int {
-	if nums == nil {
-		return nums
+func bubbleSort(nums []int) {
+	if nums == nil || len(nums) == 0 {
+		return
 	}
 
 	count := len(nums)
-	if count == 0 {
-		return nums
-	}
-
 	for i := 0; i < count-1; i++ {
 		for j := 0; j < count-i-1; j++ {
 			if nums[j] > nums[j+1] {
@@ -19,20 +15,14 @@ func bubbleSort(nums []int) []int {
 			}
 		}
 	}
-
-	return nums
 }
 
-func bubbleSort2(nums []int) []int {
-	if nums == nil {
-		return nums
+func bubbleSort2(nums []int) {
+	if nums == nil || len(nums) == 0 {
+		return
 	}
 
 	count := len(nums)
-	if count == 0 {
-		return nums
-	}
-
 	change := true
 	for i := 0; i < count-1 && change; i++ {
 		change = false
@@ -45,17 +35,11 @@ func bubbleSort2(nums []int) []int {
 			}
 		}
 	}
-
-	return nums
 }
 
-func cocktailSort(nums []int) []int {
-	if nums == nil {
-		return nums
-	}
-
-	if len(nums) == 0 {
-		return nums
+func cocktailSort(nums []int) {
+	if nums == nil || len(nums) == 0 {
+		return
 	}
 
 	count := len(nums)
@@ -79,6 +63,4 @@ func cocktailSort(nums []int) []int {
 		}
 		right--
 	}
-
-	return nums
 }
