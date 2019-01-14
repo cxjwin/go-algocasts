@@ -18,7 +18,7 @@ func IntMin(a int, b int) int {
 
 // Swap in int slice
 func Swap(nums []int, i int, j int) {
-	temp := nums[i]
+	t := nums[i]
 	nums[i] = nums[j]
-	nums[j] = temp
+	nums[j] = t
 }
