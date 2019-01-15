@@ -29,24 +29,16 @@ func TestSortFunc(t *testing.T) {
 		}
 	}
 
+	// bubble sort
 	// testBody(bubbleSort, t)
 	// testBody(bubbleSort2, t)
 	// testBody(cocktailSort, t)
 
+	// selection sort
 	// testBody(selectionSort, t)
 
+	// quick sort
 	// testBody(quickSort1, t)
 	// testBody(quickSort2, t)
-	testBody(quickSort3, t)
-}
-
-func TestPartion(t *testing.T) {
-	nums := []int{1, 4, 5, 6, 2, 9, 8, 7, 3, 5, 2, 12}
-	i := partion2(nums, 0, len(nums)-1)
-	fmt.Println(i)
-
-	nums2 := []int{1, 4, 5, 6, 2, 9, 8, 7, 3, 5, 2, 12}
-	right := len(nums2) - 1
-	j := partion3(nums2, 0, right, right)
-	fmt.Println(j)
+	// testBody(quickSort3, t)
 }
