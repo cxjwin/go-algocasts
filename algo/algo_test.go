@@ -602,3 +602,19 @@ func TestLengthOfLongestSubstring(t *testing.T) {
 	testBody(lengthOfLongestSubstring2N, t)
 	testBody(lengthOfLongestSubstring1N, t)
 }
+
+func TestLongestPalindromicSubstring(t *testing.T) {
+	type testFunc func(s string) string
+
+	testBody := func(f testFunc, t *testing.T) {
+		s := "babad"
+		sub := f(s)
+
+		if (sub != "aba") && (sub != "bab") {
+			t.Error("longest palindromic substring is 'aba' or 'bab'")
+		}
+	}
+
+	testBody(longestPalindromicSubtringDP, t)
+	testBody(longestPalindromicSubtringExpand, t)
+}

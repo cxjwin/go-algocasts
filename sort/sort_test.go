@@ -25,7 +25,7 @@ func TestSortFunc(t *testing.T) {
 
 		if !reflect.DeepEqual(copyNums, res) {
 			fmt.Println(copyNums)
-			t.Error(getFunctionName(bubbleSort2))
+			t.Error(getFunctionName(f))
 		}
 	}
 
@@ -40,5 +40,5 @@ func TestSortFunc(t *testing.T) {
 	// quick sort
 	// testBody(quickSort1, t)
 	// testBody(quickSort2, t)
-	// testBody(quickSort3, t)
+	testBody(quickSort3, t)
 }
