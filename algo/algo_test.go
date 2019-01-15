@@ -618,3 +618,7 @@ func TestLongestPalindromicSubstring(t *testing.T) {
 	testBody(longestPalindromicSubtringDP, t)
 	testBody(longestPalindromicSubtringExpand, t)
 }
+
+func TestLinkedListCycle(t *testing.T) {
+	// TODO
+}

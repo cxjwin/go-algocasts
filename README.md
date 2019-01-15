@@ -13,6 +13,7 @@ The first phase is prepared to follow the video to complete 100 questions.
 
 ## Algorithms (completed)
 
+- [Linked List Cycle](https://github.com/cxjwin/go-algocasts/blob/master/algo/linked_list_cycle.go)
 - [Longest Palindromic Substring](https://github.com/cxjwin/go-algocasts/blob/master/algo/longest_palindromic_substring.go)
 - [Longest Substring Without Repeating Characters](https://github.com/cxjwin/go-algocasts/blob/master/algo/longest_substring_without_repeating_characters.go)
 - [LRU Cache](https://github.com/cxjwin/go-algocasts/blob/master/algo/lru_cache.go)
