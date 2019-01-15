@@ -13,6 +13,7 @@ The first phase is prepared to follow the video to complete 100 questions.
 
 ## Algorithms (completed)
 
+- [Longest Substring Without Repeating Characters](https://github.com/cxjwin/go-algocasts/blob/master/algo/longest_substring_without_repeating_characters.go)
 - [LRU Cache](https://github.com/cxjwin/go-algocasts/blob/master/algo/lru_cache.go)
 - [Majority Element](https://github.com/cxjwin/go-algocasts/blob/master/algo/majority_element.go)
 - [Maximum Depth of Binary Tree](https://github.com/cxjwin/go-algocasts/blob/master/algo/maximum_depth_of_binary_tree.go)
@@ -38,6 +39,12 @@ The first phase is prepared to follow the video to complete 100 questions.
 - [Two Sum](https://github.com/cxjwin/go-algocasts/blob/master/algo/two_sum.go)
 - [Two Sum II - Input array is sorted](https://github.com/cxjwin/go-algocasts/blob/master/algo/two_sum2.go)
 - [Valid Palindrome](https://github.com/cxjwin/go-algocasts/blob/master/algo/valid_palindrome.go)
+
+## Sort (completed)
+
+- [Bubble Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/bubble_sort.go)
+- [Selection Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/selection_sort.go)
+- [Quick Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/quick_sort.go)
 
 ## Development environment
 
