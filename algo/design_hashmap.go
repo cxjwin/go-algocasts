@@ -69,6 +69,6 @@ func (m *MyHashMap) Remove(key int) {
 		v = m.array[idx]
 	}
 	if v.Key == key {
-		m.array[idx] = Pair{Key: 0, Val: 0}
+		m.array[idx].Val = -1
 	}
 }
