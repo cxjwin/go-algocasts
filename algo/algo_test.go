@@ -622,3 +622,23 @@ func TestLongestPalindromicSubstring(t *testing.T) {
 func TestLinkedListCycle(t *testing.T) {
 	// TODO
 }
+
+func TestDesignHashMap(t *testing.T) {
+	m := ConstructorMyHashMap()
+	m.Put(1, 1)
+	m.Put(2, 2)
+	if m.Get(1) != 1 {
+		t.Error("value is 1")
+	}
+	if m.Get(3) != -1 {
+		t.Error("3 is not in hash map")
+	}
+	m.Put(15578, 39252)
+	if m.Get(15578) != 39252 {
+		t.Error("when key is 15578, value is 39252")
+	}
+	m.Remove(2)
+	if m.Get(2) != -1 {
+		t.Error("2 is not in hash map")
+	}
+}
