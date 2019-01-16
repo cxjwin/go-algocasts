@@ -40,5 +40,7 @@ func TestSortFunc(t *testing.T) {
 	// quick sort
 	// testBody(quickSort1, t)
 	// testBody(quickSort2, t)
-	testBody(quickSort3, t)
+	// testBody(quickSort3, t)
+
+	testBody(countingSort, t)
 }
