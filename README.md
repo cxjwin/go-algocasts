@@ -13,6 +13,7 @@ The first phase is prepared to follow the video to complete 100 questions.
 
 ## Algorithms (completed)
 
+- [Design HashMap](https://github.com/cxjwin/go-algocasts/blob/master/algo/design_hashmap.go)
 - [Linked List Cycle](https://github.com/cxjwin/go-algocasts/blob/master/algo/linked_list_cycle.go)
 - [Longest Palindromic Substring](https://github.com/cxjwin/go-algocasts/blob/master/algo/longest_palindromic_substring.go)
 - [Longest Substring Without Repeating Characters](https://github.com/cxjwin/go-algocasts/blob/master/algo/longest_substring_without_repeating_characters.go)
@@ -47,6 +48,8 @@ The first phase is prepared to follow the video to complete 100 questions.
 - [Bubble Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/bubble_sort.go)
 - [Selection Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/selection_sort.go)
 - [Quick Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/quick_sort.go)
+- [Counting Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/counting_sort.go)
+- [Radix Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/radix_sort.go)
 
 ## Development environment
 
