@@ -1,5 +1,7 @@
 package sort
 
+// https://www.geeksforgeeks.org/counting-sort/
+
 func countingSort(nums []int) {
 	if nums == nil || len(nums) <= 1 {
 		return

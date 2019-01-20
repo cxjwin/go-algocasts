@@ -1,5 +1,7 @@
 package sort
 
+// https://www.geeksforgeeks.org/selection-sort/
+
 func selectionSort(nums []int) {
 	if nums == nil || len(nums) == 0 {
 		return

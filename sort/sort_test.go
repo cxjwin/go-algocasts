@@ -46,3 +46,15 @@ func TestSortFunc(t *testing.T) {
 
 	testBody(radixSort, t)
 }
+
+func TestBucketSort(t *testing.T) {
+	nums := []float32{0.897, 0.565, 0.656, 0.1234, 0.665, 0.3434}
+	bucketSort(nums, len(nums))
+
+	res := []float32{0.1234, 0.3434, 0.565, 0.656, 0.665, 0.897}
+
+	if !reflect.DeepEqual(nums, res) {
+		fmt.Println(nums)
+		t.Error("bucketSort")
+	}
+}

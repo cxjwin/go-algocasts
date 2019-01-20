@@ -1,5 +1,7 @@
 package sort
 
+// https://www.geeksforgeeks.org/quick-sort/
+
 import "github.com/cxjwin/go-algocasts/utils"
 
 func partion1(nums []int, left int, right int) int {

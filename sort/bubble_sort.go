@@ -1,5 +1,7 @@
 package sort
 
+// https://www.geeksforgeeks.org/bubble-sort/
+
 func bubbleSort(nums []int) {
 	if nums == nil || len(nums) == 0 {
 		return
