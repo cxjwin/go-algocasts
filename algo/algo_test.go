@@ -680,3 +680,22 @@ func TestIntersectionOfTwoLinkedList(t *testing.T) {
 	testBody(intersectionOfTwoLinkedLists, t)
 	testBody(intersectionOfTwoLinkedListsWithLength, t)
 }
+
+func TestRemoveNthNodeFromEndOfList(t *testing.T) {
+	// 1->2->3->4->5
+	head := &ds.ListNode{Value: 1, Next: nil}
+	n1 := &ds.ListNode{Value: 2, Next: nil}
+	head.Next = n1
+	n2 := &ds.ListNode{Value: 3, Next: nil}
+	n1.Next = n2
+	n3 := &ds.ListNode{Value: 4, Next: nil}
+	n2.Next = n3
+	n4 := &ds.ListNode{Value: 5, Next: nil}
+	n3.Next = n4
+
+	head = removeNthNodeFromEndOfList(head, 2)
+
+	if head.Next.Next.Value != 3 || head.Next.Next.Next.Value != 5 {
+		t.Error("4 elements, 3th is 3, last is 5")
+	}
+}
