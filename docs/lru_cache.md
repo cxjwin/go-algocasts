@@ -1,5 +1,4 @@
 https://leetcode.com/problems/lru-cache/
-https://leetcode-cn.com/problems/lru-cache/
 
 146. LRU Cache
 

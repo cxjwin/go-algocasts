@@ -1,5 +1,4 @@
 https://leetcode.com/problems/valid-palindrome/
-https://leetcode-cn.com/problems/valid-palindrome/
 
 125. Valid Palindrome
 

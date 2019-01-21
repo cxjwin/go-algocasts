@@ -642,3 +642,41 @@ func TestDesignHashMap(t *testing.T) {
 		t.Error("2 is not in hash map")
 	}
 }
+
+func TestIntersectionOfTwoLinkedList(t *testing.T) {
+
+	type testFunc func(headA, headB *ds.ListNode) *ds.ListNode
+
+	testBody := func(f testFunc, t *testing.T) {
+		// 4->1->8->4->5
+		// 5->0->1->8->4->5
+
+		headA := &ds.ListNode{Value: 4, Next: nil}
+		a1 := &ds.ListNode{Value: 1, Next: nil}
+		headA.Next = a1
+
+		headB := &ds.ListNode{Value: 5, Next: nil}
+		b1 := &ds.ListNode{Value: 0, Next: nil}
+		headB.Next = b1
+		b2 := &ds.ListNode{Value: 1, Next: nil}
+		b1.Next = b2
+
+		ab1 := &ds.ListNode{Value: 8, Next: nil}
+		a1.Next = ab1
+		b2.Next = ab1
+
+		ab2 := &ds.ListNode{Value: 4, Next: nil}
+		ab1.Next = ab2
+
+		ab3 := &ds.ListNode{Value: 5, Next: nil}
+		ab2.Next = ab3
+
+		node := f(headA, headB)
+		if node != ab1 {
+			t.Error("node is 8")
+		}
+	}
+
+	testBody(intersectionOfTwoLinkedLists, t)
+	testBody(intersectionOfTwoLinkedListsWithLength, t)
+}

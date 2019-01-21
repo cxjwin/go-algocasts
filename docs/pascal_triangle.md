@@ -1,5 +1,4 @@
 https://leetcode.com/problems/pascals-triangle/
-https://leetcode-cn.com/problems/pascals-triangle/
 
 Pascal's Triangle
 

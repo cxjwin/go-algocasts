@@ -1,5 +1,4 @@
 https://leetcode.com/problems/design-hashmap/
-https://leetcode-cn.com/problems/design-hashmap/
 
 706. Design HashMap
 
