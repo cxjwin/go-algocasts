@@ -1,4 +1,4 @@
-https://leetcode.com/problems/missing-number/
+https://leetcode.com/problems/missing-number/  
 https://leetcode-cn.com/problems/missing-number/
 
 268. Missing Number

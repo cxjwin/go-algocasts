@@ -1,4 +1,4 @@
-https://leetcode.com/problems/longest-palindromic-substring/
+https://leetcode.com/problems/longest-palindromic-substring/  
 https://leetcode-cn.com/problems/longest-palindromic-substring/
 
 5. Longest Palindromic Substring
@@ -7,12 +7,12 @@ Given a string s, find the longest palindromic substring in s. You may assume th
 
 Example 1:
 
-  Input: "babad"
-  Output: "bab"
+>Input: "babad"  
+>Output: "bab"
 
 Note: "aba" is also a valid answer.
 Example 2:
 
-  Input: "cbbd"
-  Output: "bb"
+>Input: "cbbd"  
+>Output: "bb"
 
