@@ -1,5 +1,4 @@
-https://leetcode.com/problems/palindromic-substrings/  
-https://leetcode-cn.com/problems/palindromic-substrings/
+https://leetcode.com/problems/palindromic-substrings/
 
 647. Palindromic Substrings
 

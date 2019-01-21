@@ -1,5 +1,4 @@
-https://leetcode.com/problems/symmetric-tree/  
-https://leetcode-cn.com/problems/symmetric-tree/
+https://leetcode.com/problems/symmetric-tree/
 
 101. Symmetric Tree
 

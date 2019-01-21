@@ -1,5 +1,4 @@
-https://leetcode.com/problems/two-sum/  
-https://leetcode-cn.com/problems/two-sum/
+https://leetcode.com/problems/two-sum/
 
 1. Two Sum
 
