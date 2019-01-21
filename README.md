@@ -9,7 +9,8 @@ The first phase is prepared to follow the video to complete 100 questions.
 1. Follow the video to complete 100 questions
 2. Question description from leetcode
 3. Useful data structure
-4. Unit Test
+4. Common sort algorithms
+5. Unit Test
 
 ## Algorithms (completed)
 
@@ -46,10 +47,12 @@ The first phase is prepared to follow the video to complete 100 questions.
 ## Sort (completed)
 
 - [Bubble Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/bubble_sort.go)
-- [Selection Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/selection_sort.go)
-- [Quick Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/quick_sort.go)
+- [Bucket Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/bucket_sort.go)
 - [Counting Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/counting_sort.go)
+- [Merge Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/merge_sort.go)
+- [Quick Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/quick_sort.go)
 - [Radix Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/radix_sort.go)
+- [Selection Sort](https://github.com/cxjwin/go-algocasts/blob/master/sort/selection_sort.go)
 
 ## Development environment
 
@@ -79,6 +82,14 @@ Some data structure to use in algorithm source code
 ### docs
 
 Question description
+
+### sort
+
+Sort source code & test code
+
+### utils
+
+Some util methods
 
 ## LICENSE
 

@@ -58,3 +58,15 @@ func TestBucketSort(t *testing.T) {
 		t.Error("bucketSort")
 	}
 }
+
+func TestMergeSort(t *testing.T) {
+	nums := []int{1, 4, 5, 6, 2, 9, 8, 7, 3, 5, 2, 12}
+	res := []int{1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 9, 12}
+
+	mergeSort(nums, 0, len(nums)-1)
+
+	if !reflect.DeepEqual(nums, res) {
+		fmt.Println(nums)
+		t.Error("mergeSort")
+	}
+}
