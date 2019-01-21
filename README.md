@@ -36,6 +36,8 @@ The first phase is prepared to follow the video to complete 100 questions.
 - [Pascal's Triangle](https://github.com/cxjwin/go-algocasts/blob/master/algo/pascals_triangle.go)
 - [Permutations](https://github.com/cxjwin/go-algocasts/blob/master/algo/permutations.go)
 - [Pow(x, n)](https://github.com/cxjwin/go-algocasts/blob/master/algo/pow_x_n.go)
+- [Remove Linked List Elements](https://github.com/cxjwin/go-algocasts/blob/master/algo/remove_linked_list_elements.go)
+- [Remove Nth Node From End Of List](https://github.com/cxjwin/go-algocasts/blob/master/algo/remove_nth_node_from_end_of_list.go)
 - [Reverse Linked List](https://github.com/cxjwin/go-algocasts/blob/master/algo/reverse_linked_list.go)
 - [Same Tree](https://github.com/cxjwin/go-algocasts/blob/master/algo/same_tree.go)
 - [Search a 2D Matrix](https://github.com/cxjwin/go-algocasts/blob/master/algo/search_a_2d_matrix.go)
