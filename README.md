@@ -14,7 +14,9 @@ The first phase is prepared to follow the video to complete 100 questions.
 
 ## Algorithms (completed)
 
+- [Add Two Numbers](https://github.com/cxjwin/go-algocasts/blob/master/algo/add_two_numbers.go)
 - [Design HashMap](https://github.com/cxjwin/go-algocasts/blob/master/algo/design_hashmap.go)
+- [Intersection Of Two Linked Lists](https://github.com/cxjwin/go-algocasts/blob/master/algo/intersection_of_two_linked_lists.go)
 - [Linked List Cycle](https://github.com/cxjwin/go-algocasts/blob/master/algo/linked_list_cycle.go)
 - [Longest Palindromic Substring](https://github.com/cxjwin/go-algocasts/blob/master/algo/longest_palindromic_substring.go)
 - [Longest Substring Without Repeating Characters](https://github.com/cxjwin/go-algocasts/blob/master/algo/longest_substring_without_repeating_characters.go)
@@ -82,6 +84,10 @@ Some data structure to use in algorithm source code
 ### docs
 
 Question description
+
+### resources
+
+Some resources
 
 ### sort
 
