@@ -11,10 +11,10 @@ func removeDuplicatesFromSortedList(head *ds.ListNode) *ds.ListNode {
 	next := cur.Next
 	for next != nil {
 		if cur.Value == next.Value {
-			next = next.Next
-			cur.Next = next
+			cur.Next = next.Next
+		} else {
+			cur = cur.Next
 		}
-		cur = next
 		next = next.Next
 	}
 
