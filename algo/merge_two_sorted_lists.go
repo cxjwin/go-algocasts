@@ -3,7 +3,7 @@ package algo
 import "github.com/cxjwin/go-algocasts/datastructure"
 
 func mergeTwoSortedList(l *ds.ListNode, r *ds.ListNode) *ds.ListNode {
-	dummy := &ds.ListNode{}
+	dummy := &ds.ListNode{Value: 0, Next: nil}
 	p := dummy
 
 	for l != nil && r != nil {
