@@ -699,3 +699,64 @@ func TestRemoveNthNodeFromEndOfList(t *testing.T) {
 		t.Error("4 elements, 3th is 3, last is 5")
 	}
 }
+
+func TestMinSlice(t *testing.T) {
+	node := &ds.ListNode{Value: 1, Next: nil}
+	s := addToMinSlice(nil, node)
+	n := s[0]
+	if n.Value != 1 {
+		t.Error("value is 1")
+	}
+	node = &ds.ListNode{Value: 1, Next: nil}
+	s = addToMinSlice(s, node)
+	node = &ds.ListNode{Value: 0, Next: nil}
+	s = addToMinSlice(s, node)
+	n1 := s[0]
+	n2 := s[1]
+	n3 := s[2]
+	if n1.Value != 0 || n2.Value != 1 || n3.Value != 1 {
+		t.Error("n1 value is 0, n2 value is 1, n3 value is 1")
+	}
+}
+func TestMergeKSortedListsMinClice(t *testing.T) {
+	type testFunc func(heads []*ds.ListNode) *ds.ListNode
+
+	testBody := func(f testFunc, t *testing.T) {
+		head1 := &ds.ListNode{Value: -1, Next: nil}
+		node := &ds.ListNode{Value: 1, Next: nil}
+		head1.Next = node
+
+		head2 := &ds.ListNode{Value: -3, Next: nil}
+		node = &ds.ListNode{Value: 1, Next: nil}
+		head2.Next = node
+		node = &ds.ListNode{Value: 4, Next: nil}
+		head2.Next.Next = node
+
+		head3 := &ds.ListNode{Value: -2, Next: nil}
+		node = &ds.ListNode{Value: -1, Next: nil}
+		head3.Next = node
+		node = &ds.ListNode{Value: 0, Next: nil}
+		head3.Next.Next = node
+		node = &ds.ListNode{Value: 2, Next: nil}
+		head3.Next.Next.Next = node
+
+		head := mergeKSortedListsMinClice([]*ds.ListNode{head1, head2, head3})
+		// [-3,-2,-1,-1,0,1,1,2,4]
+		if head.Value != -3 ||
+			head.Next.Value != -2 ||
+			head.Next.Next.Value != -1 ||
+			head.Next.Next.Next.Value != -1 ||
+			head.Next.Next.Next.Next.Value != 0 ||
+			head.Next.Next.Next.Next.Next.Value != 1 ||
+			head.Next.Next.Next.Next.Next.Next.Value != 1 ||
+			head.Next.Next.Next.Next.Next.Next.Next.Value != 2 ||
+			head.Next.Next.Next.Next.Next.Next.Next.Next.Value != 4 {
+			t.Error("[-3,-2,-1,-1,0,1,1,2,4]")
+		}
+	}
+
+	testBody(mergeKSortedLists, t)
+	testBody(mergeKSortedListsDivideConquer, t)
+	testBody(mergeKSortedListsMinClice, t)
+	testBody(mergeKSortedListsOneByOne, t)
+}

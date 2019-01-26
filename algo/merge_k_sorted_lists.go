@@ -82,10 +82,19 @@ func mergeKSortedListsOneByOne(lists []*ds.ListNode) *ds.ListNode {
 }
 
 func addToMinSlice(nodes []*ds.ListNode, node *ds.ListNode) []*ds.ListNode {
-	idx := 0
+	if nodes == nil {
+		return []*ds.ListNode{node}
+	}
+
+	if len(nodes) == 0 {
+		return append(nodes, node)
+	}
+
+	idx := len(nodes)
 	for i := 0; i < len(nodes); i++ {
-		if node.Value.(int) < nodes[i].Value.(int) {
+		if node.Value.(int) <= nodes[i].Value.(int) {
 			idx = i
+			break
 		}
 	}
 
@@ -97,7 +106,7 @@ func addToMinSlice(nodes []*ds.ListNode, node *ds.ListNode) []*ds.ListNode {
 }
 
 func removeFristFromMinSlice(nodes []*ds.ListNode) []*ds.ListNode {
-	if len(nodes) == 0 {
+	if nodes == nil || len(nodes) == 0 {
 		return nodes
 	}
 
@@ -131,7 +140,7 @@ func mergeKSortedListsMinClice(lists []*ds.ListNode) *ds.ListNode {
 
 		heads = removeFristFromMinSlice(heads)
 		if min.Next != nil {
-			addToMinSlice(heads, min.Next)
+			heads = addToMinSlice(heads, min.Next)
 		}
 	}
 
