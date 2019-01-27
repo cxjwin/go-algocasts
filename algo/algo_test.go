@@ -760,3 +760,54 @@ func TestMergeKSortedListsMinClice(t *testing.T) {
 	testBody(mergeKSortedListsMinClice, t)
 	testBody(mergeKSortedListsOneByOne, t)
 }
+
+func TestFirstNodeOfCycle(t *testing.T) {
+	type testFunc func(*ds.ListNode) *ds.ListNode
+
+	testBody := func(f testFunc, t *testing.T) {
+		// [3, 2, 0, -4, 2]
+		head := &ds.ListNode{Value: 3, Next: nil}
+		node := &ds.ListNode{Value: 2, Next: nil}
+		keyNode := node
+		head.Next = node
+		node = &ds.ListNode{Value: 0, Next: nil}
+		head.Next.Next = node
+		node = &ds.ListNode{Value: -4, Next: nil}
+		head.Next.Next.Next = node
+		head.Next.Next.Next.Next = keyNode
+
+		res := f(head)
+		if res != keyNode {
+			t.Error("first node is 2")
+		}
+	}
+
+	testBody(firstNodeOfCycleMap, t)
+	testBody(firstNodeOfCycle2Pointer, t)
+}
+
+func TestSortList(t *testing.T) {
+	type testFunc func(*ds.ListNode) *ds.ListNode
+
+	testBody := func(f testFunc, t *testing.T) {
+		// 4->2->1->3
+		head := &ds.ListNode{Value: 4, Next: nil}
+		node := &ds.ListNode{Value: 2, Next: nil}
+		head.Next = node
+		node = &ds.ListNode{Value: 1, Next: nil}
+		head.Next.Next = node
+		node = &ds.ListNode{Value: 3, Next: nil}
+		head.Next.Next.Next = node
+
+		res := f(head)
+		if res.Value.(int) != 1 ||
+			res.Next.Value.(int) != 2 ||
+			res.Next.Next.Value.(int) != 3 ||
+			res.Next.Next.Next.Value.(int) != 4 {
+			t.Error("res : 1 -> 2 -> 3 -> 4")
+		}
+	}
+
+	testBody(quickSortList, t)
+	testBody(mergeSortList, t)
+}
