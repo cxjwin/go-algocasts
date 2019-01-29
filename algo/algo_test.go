@@ -811,3 +811,39 @@ func TestSortList(t *testing.T) {
 	testBody(quickSortList, t)
 	testBody(mergeSortList, t)
 }
+
+func TestMiddleNode(t *testing.T) {
+	type testFunc func(*ds.ListNode) *ds.ListNode
+
+	testBody := func(f testFunc, t *testing.T) {
+		//[1,2,3,4,5]
+
+		head := &ds.ListNode{Value: 1, Next: nil}
+		node := &ds.ListNode{Value: 2, Next: nil}
+		head.Next = node
+		node = &ds.ListNode{Value: 3, Next: nil}
+		head.Next.Next = node
+		node = &ds.ListNode{Value: 4, Next: nil}
+		head.Next.Next.Next = node
+		node = &ds.ListNode{Value: 5, Next: nil}
+		head.Next.Next.Next.Next = node
+
+		mid := f(head)
+
+		if mid.Value.(int) != 3 {
+			t.Error("mid is 3")
+		}
+
+		node = &ds.ListNode{Value: 6, Next: nil}
+		head.Next.Next.Next.Next.Next = node
+
+		mid = f(head)
+
+		if mid.Value.(int) != 4 {
+			t.Error("mid is 4")
+		}
+	}
+
+	testBody(middleNodeTwoPass, t)
+	testBody(middleNodeTwoPass, t)
+}
