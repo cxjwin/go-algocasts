@@ -847,3 +847,36 @@ func TestMiddleNode(t *testing.T) {
 	testBody(middleNodeTwoPass, t)
 	testBody(middleNodeTwoPass, t)
 }
+
+func TestCopyListWithRandomPointer(t *testing.T) {
+	type testFunc func(head *RandomListNode) *RandomListNode
+
+	testBody := func(f testFunc, t *testing.T) {
+		head := &RandomListNode{Val: 4}
+		node := &RandomListNode{Val: 2}
+		head.Next = node
+		node = &RandomListNode{Val: 3}
+		head.Next.Next = node
+		head.Random = node
+		node = &RandomListNode{Val: 1}
+		head.Next.Next.Next = node
+		head.Next.Random = node
+
+		copyHead := f(head)
+
+		if copyHead.Val != 4 ||
+			copyHead.Next.Val != 2 ||
+			copyHead.Next.Next.Val != 3 ||
+			copyHead.Next.Next.Next.Val != 1 {
+			t.Error("4 -> 3 -> 2 -> 1")
+		}
+
+		if copyHead.Random.Val != 3 ||
+			copyHead.Next.Random.Val != 1 {
+			t.Error("4 => 3, 2 => 1")
+		}
+	}
+
+	testBody(copyListWithRandomPointer, t)
+	testBody(copyListWithRandomPointerO1, t)
+}
