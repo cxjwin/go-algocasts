@@ -7,21 +7,24 @@ func partitionList(head *ds.ListNode, x int) *ds.ListNode {
 		return head
 	}
 
-	dummy := &ds.ListNode{}
-	s := dummy
+	s := &ds.ListNode{}
 	g := &ds.ListNode{}
+
 	p := head
+	ps := s
+	pg := g
 
 	for p != nil {
 		if p.Value.(int) < x {
-			s.Next = p
-			s = s.Next
+			ps.Next = p
+			ps = ps.Next
 		} else {
-			g.Next = p
-			g = g.Next
+			pg.Next = p
+			pg = pg.Next
 		}
 		p = p.Next
 	}
+	ps.Next = g.Next
 
-	return dummy.Next
+	return s.Next
 }

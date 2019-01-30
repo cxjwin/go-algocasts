@@ -880,3 +880,36 @@ func TestCopyListWithRandomPointer(t *testing.T) {
 	testBody(copyListWithRandomPointer, t)
 	testBody(copyListWithRandomPointerO1, t)
 }
+
+func TestPartitionList(t *testing.T) {
+	// 1 -> 4 -> 3 -> 2 -> 5 -> 2
+	head := &ds.ListNode{Value: 1, Next: nil}
+	node := &ds.ListNode{Value: 4, Next: nil}
+	head.Next = node
+	node = &ds.ListNode{Value: 3, Next: nil}
+	head.Next.Next = node
+	node = &ds.ListNode{Value: 2, Next: nil}
+	head.Next.Next.Next = node
+	node = &ds.ListNode{Value: 5, Next: nil}
+	head.Next.Next.Next.Next = node
+	node = &ds.ListNode{Value: 2, Next: nil}
+	head.Next.Next.Next.Next.Next = node
+
+	//1->2->2->4->3->5
+	res := partitionList(head, 3)
+
+	p := res
+	for p != nil {
+		fmt.Println(p.Value)
+		p = p.Next
+	}
+
+	if res.Value.(int) != 1 ||
+		res.Next.Value.(int) != 2 ||
+		res.Next.Next.Value.(int) != 2 ||
+		res.Next.Next.Next.Value.(int) != 4 ||
+		res.Next.Next.Next.Next.Value.(int) != 3 ||
+		res.Next.Next.Next.Next.Next.Value.(int) != 5 {
+		t.Error("1->2->2->4->3->5")
+	}
+}
