@@ -25,6 +25,7 @@ func partitionList(head *ds.ListNode, x int) *ds.ListNode {
 		p = p.Next
 	}
 	ps.Next = g.Next
+	pg.Next = nil
 
 	return s.Next
 }

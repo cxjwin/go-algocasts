@@ -882,7 +882,7 @@ func TestCopyListWithRandomPointer(t *testing.T) {
 }
 
 func TestPartitionList(t *testing.T) {
-	// 1 -> 4 -> 3 -> 2 -> 5 -> 2
+	// 1->4->3->2->5->2
 	head := &ds.ListNode{Value: 1, Next: nil}
 	node := &ds.ListNode{Value: 4, Next: nil}
 	head.Next = node
@@ -911,5 +911,53 @@ func TestPartitionList(t *testing.T) {
 		res.Next.Next.Next.Next.Value.(int) != 3 ||
 		res.Next.Next.Next.Next.Next.Value.(int) != 5 {
 		t.Error("1->2->2->4->3->5")
+	}
+}
+
+func TestRotateListRight(t *testing.T) {
+	// 0->1->2->4->8
+	head := &ds.ListNode{Value: 0, Next: nil}
+	node := &ds.ListNode{Value: 1, Next: nil}
+	head.Next = node
+	node = &ds.ListNode{Value: 2, Next: nil}
+	head.Next.Next = node
+	node = &ds.ListNode{Value: 4, Next: nil}
+	head.Next.Next.Next = node
+	node = &ds.ListNode{Value: 8, Next: nil}
+	head.Next.Next.Next.Next = node
+
+	res := rotateListRight(head, 3)
+
+	// 2->4->8->0->1
+	if res.Value.(int) != 2 ||
+		res.Next.Value.(int) != 4 ||
+		res.Next.Next.Value.(int) != 8 ||
+		res.Next.Next.Next.Value.(int) != 0 ||
+		res.Next.Next.Next.Next.Value.(int) != 1 {
+		t.Error("2->4->8->0->1")
+	}
+}
+
+func TestBinaryTreeInorderTraversal(t *testing.T) {
+	root := ds.NewTree(1)
+
+	// left
+	l1 := root.Insert(2, true)
+	l1r := l1.Insert(4, false)
+	l1r.Insert(5, true)
+
+	// right
+	root.Insert(3, false)
+
+	res := binaryTreeInorderTraversal(root)
+	if len(res) != 5 {
+		t.Error("len == 5")
+	}
+	if res[0] != 2 ||
+		res[1] != 5 ||
+		res[2] != 4 ||
+		res[3] != 1 ||
+		res[4] != 3 {
+		t.Error("2, 5, 4, 1, 3")
 	}
 }
