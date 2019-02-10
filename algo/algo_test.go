@@ -312,7 +312,7 @@ func TestIsPalindromeLinkedListUsingStack(t *testing.T) {
 		res = f(list)
 
 		if !res {
-			t.Error("'1 -> 2 -> 2 -> 1' is not palindrome linked list")
+			t.Error("'1 -> 2 -> 2 -> 1' is palindrome linked list")
 		}
 
 		fmt.Println("========== line ==========")
@@ -328,7 +328,7 @@ func TestIsPalindromeLinkedListUsingStack(t *testing.T) {
 		res = f(list)
 
 		if !res {
-			t.Error("'1 -> 2 -> 3 -> 2 -> 1' is not palindrome linked list")
+			t.Error("'1 -> 2 -> 3 -> 2 -> 1' is palindrome linked list")
 		}
 	}
 
