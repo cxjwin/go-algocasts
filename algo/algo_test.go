@@ -961,3 +961,30 @@ func TestBinaryTreeInorderTraversal(t *testing.T) {
 		t.Error("2, 5, 4, 1, 3")
 	}
 }
+
+func TestEditDistance(t *testing.T) {
+	w1, w2 := "horse", "ros"
+	res := editDistance(w1, w2)
+	if res != 3 {
+		t.Error("edit distance is 3")
+	}
+
+	w1, w2 = "intention", "execution"
+	res = editDistance(w1, w2)
+	if res != 5 {
+		t.Error("edit distance is 5")
+	}
+}
+func TestEditDistance1dArray(t *testing.T) {
+	w1, w2 := "horse", "ros"
+	res := editDistance1dArray(w1, w2)
+	if res != 3 {
+		t.Error("edit distance is 3")
+	}
+
+	w1, w2 = "intention", "execution"
+	res = editDistance1dArray(w1, w2)
+	if res != 5 {
+		t.Error("edit distance is 5")
+	}
+}
