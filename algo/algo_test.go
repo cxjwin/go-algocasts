@@ -988,3 +988,11 @@ func TestEditDistance1dArray(t *testing.T) {
 		t.Error("edit distance is 5")
 	}
 }
+
+func TestContainerWithMostWater(t *testing.T) {
+	nums := []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
+	res := maxArea(nums)
+	if res != 49 {
+		t.Error("output is 49")
+	}
+}
