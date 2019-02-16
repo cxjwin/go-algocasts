@@ -996,3 +996,11 @@ func TestContainerWithMostWater(t *testing.T) {
 		t.Error("output is 49")
 	}
 }
+
+func TestClimbStairs(t *testing.T) {
+	res := climbStairsRecursive(3)
+	res2 := climbStairsIterative(3)
+	if res != 3 || res != res2 {
+		t.Error("There are 3 ways to climb to the top")
+	}
+}
