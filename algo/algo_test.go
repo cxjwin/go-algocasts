@@ -1004,3 +1004,23 @@ func TestClimbStairs(t *testing.T) {
 		t.Error("There are 3 ways to climb to the top")
 	}
 }
+
+func TestBindaryTreeLevelOrderTraversal(t *testing.T) {
+	root := ds.NewTree(3)
+
+	root.Insert(9, true)
+	r1 := root.Insert(20, false)
+
+	r1.Insert(15, true)
+	r1.Insert(7, false)
+
+	res := levelOrder(root)
+
+	if len(res) != 3 {
+		t.Error("res len is 3")
+	}
+
+	fmt.Println(res[0])
+	fmt.Println(res[1])
+	fmt.Println(res[2])
+}
