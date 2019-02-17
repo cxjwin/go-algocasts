@@ -1104,3 +1104,35 @@ func TestSearchInsertPosition(t *testing.T) {
 		t.Error("index is 0")
 	}
 }
+
+func TestIsBalancedTree(t *testing.T) {
+	type testFunc func(root *ds.Tree) bool
+	testBody := func(f testFunc, t *testing.T) {
+		root := ds.NewTree(3)
+		root.Insert(9, true)
+		r1 := root.Insert(20, false)
+		r1.Insert(15, true)
+		r1.Insert(7, false)
+
+		res := f(root)
+		if !res {
+			t.Error("is balanced tree")
+		}
+
+		root = ds.NewTree(1)
+		root.Insert(2, true)
+		l1 := root.Insert(2, true)
+		l1.Insert(3, true)
+		l2 := l1.Insert(3, false)
+		l2.Insert(4, true)
+		l2.Insert(4, false)
+
+		res = f(root)
+		if res {
+			t.Error("is not balanced tree")
+		}
+	}
+
+	testBody(isBalancedTreeTopDown, t)
+	testBody(isBalancedTreeBottomUp, t)
+}
