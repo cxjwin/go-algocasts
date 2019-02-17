@@ -965,7 +965,7 @@ func TestBinaryTreeInorderTraversal(t *testing.T) {
 		}
 	}
 
-	// testBody(binaryTreeInorderTraversal, t)
+	testBody(binaryTreeInorderTraversal, t)
 	testBody(binaryTreeInorderTraversalIterative, t)
 }
 
@@ -1061,5 +1061,19 @@ func TestBindaryTreeLevelOrderTraversalII(t *testing.T) {
 	}
 	if !reflect.DeepEqual(res[2], []int{3}) {
 		t.Error("row 3 : [3]")
+	}
+}
+
+func TestBinarySearch(t *testing.T) {
+	nums := []int{-1, 0, 3, 5, 9, 12}
+
+	res := binarySearch(nums, 9)
+	if res != 4 {
+		t.Error("9 exists in nums and its index is 4")
+	}
+
+	res = binarySearch(nums, 2)
+	if res != -1 {
+		t.Error("2 does not exist in nums so return -1")
 	}
 }
