@@ -22,8 +22,15 @@ func TestSearchA2DMatrix(t *testing.T) {
 		[]int{10, 11, 16, 20},
 		[]int{23, 30, 34, 50},
 	}
-	res := searchA2DMatrix(34, matrix)
-	fmt.Println(res)
+	r, c := searchA2DMatrix(34, matrix)
+	if r != 2 || c != 2 {
+		t.Error("res is [2, 2]")
+	}
+
+	r, c = binarySearchA2DMatrix(34, matrix)
+	if r != 2 || c != 2 {
+		t.Error("res is [2, 2]")
+	}
 }
 
 func TestSingleNumber(t *testing.T) {
@@ -1075,5 +1082,25 @@ func TestBinarySearch(t *testing.T) {
 	res = binarySearch(nums, 2)
 	if res != -1 {
 		t.Error("2 does not exist in nums so return -1")
+	}
+}
+
+func TestSearchInsertPosition(t *testing.T) {
+	nums := []int{1, 3, 5, 6}
+	res := searchInsertPosition(nums, 5)
+	if res != 2 {
+		t.Error("index is 2")
+	}
+	res = searchInsertPosition(nums, 2)
+	if res != 1 {
+		t.Error("index is 1")
+	}
+	res = searchInsertPosition(nums, 7)
+	if res != 4 {
+		t.Error("index is 4")
+	}
+	res = searchInsertPosition(nums, 0)
+	if res != 0 {
+		t.Error("index is 0")
 	}
 }
