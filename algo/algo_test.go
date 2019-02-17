@@ -2,6 +2,7 @@ package algo
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 )
 
@@ -939,27 +940,33 @@ func TestRotateListRight(t *testing.T) {
 }
 
 func TestBinaryTreeInorderTraversal(t *testing.T) {
-	root := ds.NewTree(1)
+	type testFunc func(root *ds.Tree) []int
+	testBody := func(f testFunc, t *testing.T) {
+		root := ds.NewTree(1)
 
-	// left
-	l1 := root.Insert(2, true)
-	l1r := l1.Insert(4, false)
-	l1r.Insert(5, true)
+		// left
+		l1 := root.Insert(2, true)
+		l1r := l1.Insert(4, false)
+		l1r.Insert(5, true)
 
-	// right
-	root.Insert(3, false)
+		// right
+		root.Insert(3, false)
 
-	res := binaryTreeInorderTraversal(root)
-	if len(res) != 5 {
-		t.Error("len == 5")
+		res := f(root)
+		if len(res) != 5 {
+			t.Error("len == 5")
+		}
+		if res[0] != 2 ||
+			res[1] != 5 ||
+			res[2] != 4 ||
+			res[3] != 1 ||
+			res[4] != 3 {
+			t.Error("2, 5, 4, 1, 3")
+		}
 	}
-	if res[0] != 2 ||
-		res[1] != 5 ||
-		res[2] != 4 ||
-		res[3] != 1 ||
-		res[4] != 3 {
-		t.Error("2, 5, 4, 1, 3")
-	}
+
+	// testBody(binaryTreeInorderTraversal, t)
+	testBody(binaryTreeInorderTraversalIterative, t)
 }
 
 func TestEditDistance(t *testing.T) {
@@ -1020,7 +1027,39 @@ func TestBindaryTreeLevelOrderTraversal(t *testing.T) {
 		t.Error("res len is 3")
 	}
 
-	fmt.Println(res[0])
-	fmt.Println(res[1])
-	fmt.Println(res[2])
+	if !reflect.DeepEqual(res[0], []int{3}) {
+		t.Error("row 1 : [3]")
+	}
+	if !reflect.DeepEqual(res[1], []int{9, 20}) {
+		t.Error("row 2 : [9, 20]")
+	}
+	if !reflect.DeepEqual(res[2], []int{15, 7}) {
+		t.Error("row 3 : [15, 7]")
+	}
+}
+
+func TestBindaryTreeLevelOrderTraversalII(t *testing.T) {
+	root := ds.NewTree(3)
+
+	root.Insert(9, true)
+	r1 := root.Insert(20, false)
+
+	r1.Insert(15, true)
+	r1.Insert(7, false)
+
+	res := levelOrderBottom(root)
+
+	if len(res) != 3 {
+		t.Error("res len is 3")
+	}
+
+	if !reflect.DeepEqual(res[0], []int{15, 7}) {
+		t.Error("row 1 : [15, 7]")
+	}
+	if !reflect.DeepEqual(res[1], []int{9, 20}) {
+		t.Error("row 2 : [9, 20]")
+	}
+	if !reflect.DeepEqual(res[2], []int{3}) {
+		t.Error("row 3 : [3]")
+	}
 }
