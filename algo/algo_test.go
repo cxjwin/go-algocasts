@@ -961,3 +961,18 @@ func TestBinaryTreeInorderTraversal(t *testing.T) {
 		t.Error("2, 5, 4, 1, 3")
 	}
 }
+
+func TestGegerateParentheses(t *testing.T) {
+	type testFunc func(n int) []string
+
+	testBody := func(f testFunc, t *testing.T) {
+		res := f(3)
+		fmt.Println(res)
+		if len(res) != 5 {
+			t.Error("a solution set is 5")
+		}
+	}
+
+	testBody(generateParentheses, t)
+	testBody(generateParenthesesDP, t)
+}
