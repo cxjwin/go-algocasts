@@ -2,6 +2,7 @@ package algo
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 )
 
@@ -21,8 +22,15 @@ func TestSearchA2DMatrix(t *testing.T) {
 		[]int{10, 11, 16, 20},
 		[]int{23, 30, 34, 50},
 	}
-	res := searchA2DMatrix(34, matrix)
-	fmt.Println(res)
+	r, c := searchA2DMatrix(34, matrix)
+	if r != 2 || c != 2 {
+		t.Error("res is [2, 2]")
+	}
+
+	r, c = binarySearchA2DMatrix(34, matrix)
+	if r != 2 || c != 2 {
+		t.Error("res is [2, 2]")
+	}
 }
 
 func TestSingleNumber(t *testing.T) {
@@ -939,26 +947,101 @@ func TestRotateListRight(t *testing.T) {
 }
 
 func TestBinaryTreeInorderTraversal(t *testing.T) {
-	root := ds.NewTree(1)
+	type testFunc func(root *ds.Tree) []int
+	testBody := func(f testFunc, t *testing.T) {
+		root := ds.NewTree(1)
 
-	// left
-	l1 := root.Insert(2, true)
-	l1r := l1.Insert(4, false)
-	l1r.Insert(5, true)
+		// left
+		l1 := root.Insert(2, true)
+		l1r := l1.Insert(4, false)
+		l1r.Insert(5, true)
 
-	// right
-	root.Insert(3, false)
+		// right
+		root.Insert(3, false)
 
-	res := binaryTreeInorderTraversal(root)
-	if len(res) != 5 {
-		t.Error("len == 5")
+		res := f(root)
+		if len(res) != 5 {
+			t.Error("len == 5")
+		}
+		if res[0] != 2 ||
+			res[1] != 5 ||
+			res[2] != 4 ||
+			res[3] != 1 ||
+			res[4] != 3 {
+			t.Error("2, 5, 4, 1, 3")
+		}
 	}
-	if res[0] != 2 ||
-		res[1] != 5 ||
-		res[2] != 4 ||
-		res[3] != 1 ||
-		res[4] != 3 {
-		t.Error("2, 5, 4, 1, 3")
+
+	testBody(binaryTreeInorderTraversal, t)
+	testBody(binaryTreeInorderTraversalIterative, t)
+}
+
+func TestEditDistance(t *testing.T) {
+	w1, w2 := "horse", "ros"
+	res := editDistance(w1, w2)
+	if res != 3 {
+		t.Error("edit distance is 3")
+	}
+
+	w1, w2 = "intention", "execution"
+	res = editDistance(w1, w2)
+	if res != 5 {
+		t.Error("edit distance is 5")
+	}
+}
+func TestEditDistance1dArray(t *testing.T) {
+	w1, w2 := "horse", "ros"
+	res := editDistance1dArray(w1, w2)
+	if res != 3 {
+		t.Error("edit distance is 3")
+	}
+
+	w1, w2 = "intention", "execution"
+	res = editDistance1dArray(w1, w2)
+	if res != 5 {
+		t.Error("edit distance is 5")
+	}
+}
+
+func TestContainerWithMostWater(t *testing.T) {
+	nums := []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
+	res := maxArea(nums)
+	if res != 49 {
+		t.Error("output is 49")
+	}
+}
+
+func TestClimbStairs(t *testing.T) {
+	res := climbStairsRecursive(3)
+	res2 := climbStairsIterative(3)
+	if res != 3 || res != res2 {
+		t.Error("There are 3 ways to climb to the top")
+	}
+}
+
+func TestBindaryTreeLevelOrderTraversal(t *testing.T) {
+	root := ds.NewTree(3)
+
+	root.Insert(9, true)
+	r1 := root.Insert(20, false)
+
+	r1.Insert(15, true)
+	r1.Insert(7, false)
+
+	res := levelOrder(root)
+
+	if len(res) != 3 {
+		t.Error("res len is 3")
+	}
+
+	if !reflect.DeepEqual(res[0], []int{3}) {
+		t.Error("row 1 : [3]")
+	}
+	if !reflect.DeepEqual(res[1], []int{9, 20}) {
+		t.Error("row 2 : [9, 20]")
+	}
+	if !reflect.DeepEqual(res[2], []int{15, 7}) {
+		t.Error("row 3 : [15, 7]")
 	}
 }
 
@@ -975,4 +1058,96 @@ func TestGegerateParentheses(t *testing.T) {
 
 	testBody(generateParentheses, t)
 	testBody(generateParenthesesDP, t)
+}
+
+func TestBindaryTreeLevelOrderTraversalII(t *testing.T) {
+	root := ds.NewTree(3)
+
+	root.Insert(9, true)
+	r1 := root.Insert(20, false)
+
+	r1.Insert(15, true)
+	r1.Insert(7, false)
+
+	res := levelOrderBottom(root)
+
+	if len(res) != 3 {
+		t.Error("res len is 3")
+	}
+
+	if !reflect.DeepEqual(res[0], []int{15, 7}) {
+		t.Error("row 1 : [15, 7]")
+	}
+	if !reflect.DeepEqual(res[1], []int{9, 20}) {
+		t.Error("row 2 : [9, 20]")
+	}
+	if !reflect.DeepEqual(res[2], []int{3}) {
+		t.Error("row 3 : [3]")
+	}
+}
+
+func TestBinarySearch(t *testing.T) {
+	nums := []int{-1, 0, 3, 5, 9, 12}
+
+	res := binarySearch(nums, 9)
+	if res != 4 {
+		t.Error("9 exists in nums and its index is 4")
+	}
+
+	res = binarySearch(nums, 2)
+	if res != -1 {
+		t.Error("2 does not exist in nums so return -1")
+	}
+}
+
+func TestSearchInsertPosition(t *testing.T) {
+	nums := []int{1, 3, 5, 6}
+	res := searchInsertPosition(nums, 5)
+	if res != 2 {
+		t.Error("index is 2")
+	}
+	res = searchInsertPosition(nums, 2)
+	if res != 1 {
+		t.Error("index is 1")
+	}
+	res = searchInsertPosition(nums, 7)
+	if res != 4 {
+		t.Error("index is 4")
+	}
+	res = searchInsertPosition(nums, 0)
+	if res != 0 {
+		t.Error("index is 0")
+	}
+}
+
+func TestIsBalancedTree(t *testing.T) {
+	type testFunc func(root *ds.Tree) bool
+	testBody := func(f testFunc, t *testing.T) {
+		root := ds.NewTree(3)
+		root.Insert(9, true)
+		r1 := root.Insert(20, false)
+		r1.Insert(15, true)
+		r1.Insert(7, false)
+
+		res := f(root)
+		if !res {
+			t.Error("is balanced tree")
+		}
+
+		root = ds.NewTree(1)
+		root.Insert(2, true)
+		l1 := root.Insert(2, true)
+		l1.Insert(3, true)
+		l2 := l1.Insert(3, false)
+		l2.Insert(4, true)
+		l2.Insert(4, false)
+
+		res = f(root)
+		if res {
+			t.Error("is not balanced tree")
+		}
+	}
+
+	testBody(isBalancedTreeTopDown, t)
+	testBody(isBalancedTreeBottomUp, t)
 }

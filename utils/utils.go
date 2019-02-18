@@ -16,6 +16,14 @@ func IntMin(a int, b int) int {
 	return b
 }
 
+// IntAbs abs func with int type
+func IntAbs(a int) int {
+	if a < 0 {
+		return -a
+	}
+	return a
+}
+
 // Swap in int slice
 func Swap(nums []int, i int, j int) {
 	t := nums[i]
