@@ -1165,3 +1165,17 @@ func TestPancakeSort(t *testing.T) {
 	fmt.Println(nums)
 	fmt.Println(res)
 }
+
+func TestLargestNumber(t *testing.T) {
+	nums := []int{10, 2}
+	res := largestNumber(nums)
+	if res != "210" {
+		t.Error("output is 210")
+	}
+
+	nums = []int{3, 30, 34, 5, 9}
+	res = largestNumber(nums)
+	if res != "9534330" {
+		t.Error("output is 9534330")
+	}
+}
