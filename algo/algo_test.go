@@ -1220,3 +1220,52 @@ func TestStringToInteger(t *testing.T) {
 		t.Error("math.MaxInt32")
 	}
 }
+
+func TestStrStr(t *testing.T) {
+	haystack, needle := "hello", "ll"
+	res := strStr(haystack, needle)
+	if res != 2 {
+		t.Error("1 - Output: 2")
+	}
+
+	haystack, needle = "aaaaa", "bba"
+	res = strStr(haystack, needle)
+	if res != -1 {
+		t.Error("2 - Output: -1")
+	}
+
+	haystack, needle = "", ""
+	res = strStr(haystack, needle)
+	if res != 0 {
+		t.Error("3 - Output: -1")
+	}
+
+	haystack, needle = "aaa", ""
+	res = strStr(haystack, needle)
+	if res != 0 {
+		t.Error("4 - Output: 0")
+	}
+
+	haystack, needle = "", "aaa"
+	res = strStr(haystack, needle)
+	if res != -1 {
+		t.Error("5 - Output: -1")
+	}
+
+	haystack, needle = "a", "aaa"
+	res = strStr(haystack, needle)
+	if res != -1 {
+		t.Error("6 - Output: -1")
+	}
+
+	haystack, needle = "aaa", "aaa"
+	res = strStr(haystack, needle)
+	if res != 0 {
+		t.Error("7 - Output: 0")
+	}
+	haystack, needle = "a", "a"
+	res = strStr(haystack, needle)
+	if res != 0 {
+		t.Error("8 - Output: 0")
+	}
+}
