@@ -1,51 +1,42 @@
 package algo
 
-import "fmt"
-
-func find(nums []int, target int) (int, int) {
-	idx := -1
-	min := target
-	for _, v := range nums {
-		if v > target {
-			min = v
-			break
+func findMax(nums []int, n int) int {
+	mi := 0
+	for i := 0; i < n; i++ {
+		if nums[i] > nums[mi] {
+			mi = i
 		}
 	}
-
-	for i, v := range nums {
-		if v < min && v > target {
-			idx = i
-			min = v
-		}
-	}
-
-	return idx, min
+	return mi
 }
 
 func flip(nums []int, idx int) {
-	mid := idx / 2
-	for i := 0; i < mid; i++ {
-		j := idx - i
-		temp := nums[i]
-		nums[i] = nums[j]
-		nums[j] = temp
+	start := 0
+	for start < idx {
+		temp := nums[start]
+		nums[start] = nums[idx]
+		nums[idx] = temp
+		start++
+		idx--
 	}
 }
 
-func pancakeSort(A []int) []int {
-	if A == nil || len(A) == 0 {
+func pancakeSort(nums []int) []int {
+	if nums == nil || len(nums) == 0 {
 		return []int{}
 	}
 
-	res := make([]int, len(A))
-	min := 0
-	for i := 0; i < len(A); i++ {
-		idx, val := find(A, min)
-		fmt.Println(val)
-		min = val
-		flip(A, idx)
-		fmt.Println(A)
-		res[i] = idx
+	n := len(nums)
+	res := make([]int, 0)
+	for curSize := n; curSize > 1; curSize-- {
+		mi := findMax(nums, curSize)
+
+		if mi != curSize-1 {
+			res = append(res, mi+1)
+			flip(nums, mi)
+			res = append(res, curSize)
+			flip(nums, curSize-1)
+		}
 	}
 
 	return res

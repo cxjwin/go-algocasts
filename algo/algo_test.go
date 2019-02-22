@@ -1154,14 +1154,7 @@ func TestIsBalancedTree(t *testing.T) {
 
 func TestPancakeSort(t *testing.T) {
 	nums := []int{3, 2, 4, 1}
-	// i, v := find(nums, 0)
-	// if i != 3 || v != 1 {
-	// 	t.Error("find 1")
-	// }
-	// flip(nums, i)
-
 	res := pancakeSort(nums)
-
 	fmt.Println(nums)
 	fmt.Println(res)
 }
