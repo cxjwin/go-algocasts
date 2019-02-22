@@ -2,11 +2,12 @@ package algo
 
 import (
 	"fmt"
+	"math"
 	"reflect"
 	"testing"
-)
 
-import "github.com/cxjwin/go-algocasts/datastructure"
+	"github.com/cxjwin/go-algocasts/datastructure"
+)
 
 func TestPascalTriangle(t *testing.T) {
 	numRows := 5
@@ -1157,4 +1158,107 @@ func TestPancakeSort(t *testing.T) {
 	res := pancakeSort(nums)
 	fmt.Println(nums)
 	fmt.Println(res)
+}
+
+func TestLargestNumber(t *testing.T) {
+	nums := []int{10, 2}
+	res := largestNumber(nums)
+	if res != "210" {
+		t.Error("output is 210")
+	}
+
+	nums = []int{3, 30, 34, 5, 9}
+	res = largestNumber(nums)
+	if res != "9534330" {
+		t.Error("output is 9534330")
+	}
+}
+
+func TestIsUglyNumber(t *testing.T) {
+	if !isUglyNumber(45) {
+		t.Error("45 is ugly number")
+	}
+	if isUglyNumber(42) {
+		t.Error("42 is't ugly number")
+	}
+}
+
+func TestStringToInteger(t *testing.T) {
+	s := "42"
+	if stringToInteger(s) != 42 {
+		t.Error("42")
+	}
+	s = "   -42"
+	if stringToInteger(s) != -42 {
+		t.Error("-42")
+	}
+	s = "4193 with words"
+	if stringToInteger(s) != 4193 {
+		t.Error("4193")
+	}
+	s = "words and 987"
+	if stringToInteger(s) != 0 {
+		t.Error("0")
+	}
+	s = "-91283472332"
+	if stringToInteger(s) != math.MinInt32 {
+		t.Error("math.MinInt32")
+	}
+	s = "-000000000000001"
+	if stringToInteger(s) != -1 {
+		t.Error("-1")
+	}
+	s = "9223372036854775808"
+	if stringToInteger(s) != math.MaxInt32 {
+		t.Error("math.MaxInt32")
+	}
+}
+
+func TestStrStr(t *testing.T) {
+	haystack, needle := "hello", "ll"
+	res := strStr(haystack, needle)
+	if res != 2 {
+		t.Error("1 - Output: 2")
+	}
+
+	haystack, needle = "aaaaa", "bba"
+	res = strStr(haystack, needle)
+	if res != -1 {
+		t.Error("2 - Output: -1")
+	}
+
+	haystack, needle = "", ""
+	res = strStr(haystack, needle)
+	if res != 0 {
+		t.Error("3 - Output: -1")
+	}
+
+	haystack, needle = "aaa", ""
+	res = strStr(haystack, needle)
+	if res != 0 {
+		t.Error("4 - Output: 0")
+	}
+
+	haystack, needle = "", "aaa"
+	res = strStr(haystack, needle)
+	if res != -1 {
+		t.Error("5 - Output: -1")
+	}
+
+	haystack, needle = "a", "aaa"
+	res = strStr(haystack, needle)
+	if res != -1 {
+		t.Error("6 - Output: -1")
+	}
+
+	haystack, needle = "aaa", "aaa"
+	res = strStr(haystack, needle)
+	if res != 0 {
+		t.Error("7 - Output: 0")
+	}
+	haystack, needle = "a", "a"
+	res = strStr(haystack, needle)
+	if res != 0 {
+		t.Error("8 - Output: 0")
+	}
 }
