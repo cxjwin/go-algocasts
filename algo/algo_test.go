@@ -2,11 +2,12 @@ package algo
 
 import (
 	"fmt"
+	"math"
 	"reflect"
 	"testing"
-)
 
-import "github.com/cxjwin/go-algocasts/datastructure"
+	"github.com/cxjwin/go-algocasts/datastructure"
+)
 
 func TestPascalTriangle(t *testing.T) {
 	numRows := 5
@@ -1177,5 +1178,45 @@ func TestLargestNumber(t *testing.T) {
 	res = largestNumber(nums)
 	if res != "9534330" {
 		t.Error("output is 9534330")
+	}
+}
+
+func TestIsUglyNumber(t *testing.T) {
+	if !isUglyNumber(45) {
+		t.Error("45 is ugly number")
+	}
+	if isUglyNumber(42) {
+		t.Error("42 is't ugly number")
+	}
+}
+
+func TestStringToInteger(t *testing.T) {
+	s := "42"
+	if stringToInteger(s) != 42 {
+		t.Error("42")
+	}
+	s = "   -42"
+	if stringToInteger(s) != -42 {
+		t.Error("-42")
+	}
+	s = "4193 with words"
+	if stringToInteger(s) != 4193 {
+		t.Error("4193")
+	}
+	s = "words and 987"
+	if stringToInteger(s) != 0 {
+		t.Error("0")
+	}
+	s = "-91283472332"
+	if stringToInteger(s) != math.MinInt32 {
+		t.Error("math.MinInt32")
+	}
+	s = "-000000000000001"
+	if stringToInteger(s) != -1 {
+		t.Error("-1")
+	}
+	s = "9223372036854775808"
+	if stringToInteger(s) != math.MaxInt32 {
+		t.Error("math.MaxInt32")
 	}
 }
