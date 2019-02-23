@@ -1,5 +1,7 @@
 package algo
 
+// https://leetcode.com/problems/generate-parentheses/
+
 func generate(res *[]string, str string, left int, right int) {
 	if left == 0 && right == 0 {
 		temp := append((*res), str)

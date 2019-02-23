@@ -1,5 +1,7 @@
 package algo
 
+// leetcode : https://leetcode.com/problems/valid-palindrome/
+
 // 是否是字母或数字
 func isAlphanumeric(r byte) bool {
 	switch {

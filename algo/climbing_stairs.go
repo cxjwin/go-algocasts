@@ -1,5 +1,7 @@
 package algo
 
+// https://leetcode.com/problems/climbing-stairs/
+
 func climbStairsRecursive(n int) int {
 	if n < 2 {
 		return 1

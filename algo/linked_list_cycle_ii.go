@@ -2,6 +2,8 @@ package algo
 
 import "github.com/cxjwin/go-algocasts/datastructure"
 
+// https://leetcode.com/problems/linked-list-cycle-ii/
+
 func firstNodeOfCycleMap(head *ds.ListNode) *ds.ListNode {
 	if head == nil || head.Next == nil {
 		return nil

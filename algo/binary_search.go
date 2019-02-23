@@ -1,5 +1,7 @@
 package algo
 
+// https://leetcode.com/problems/binary-search/
+
 func binarySearch(nums []int, target int) int {
 	if nums == nil || len(nums) == 0 {
 		return -1

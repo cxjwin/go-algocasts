@@ -2,6 +2,8 @@ package algo
 
 import "github.com/cxjwin/go-algocasts/datastructure"
 
+// https://leetcode.com/problems/intersection-of-two-linked-lists/
+
 func intersectionOfTwoLinkedLists(headA, headB *ds.ListNode) *ds.ListNode {
 	if headA == nil || headB == nil {
 		return nil

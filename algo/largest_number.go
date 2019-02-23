@@ -4,6 +4,8 @@ import "sort"
 import "strconv"
 import "strings"
 
+// https://leetcode.com/problems/largest-number/
+
 func compareNumber(a int, b int) bool {
 	// number to string
 	str1 := strconv.Itoa(a)

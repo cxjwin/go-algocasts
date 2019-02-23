@@ -83,14 +83,6 @@ Algorithms source code & test code
 
 Some data structure to use in algorithm source code
 
-### docs
-
-Question description
-
-### resources
-
-Some resources
-
 ### sort
 
 Sort source code & test code

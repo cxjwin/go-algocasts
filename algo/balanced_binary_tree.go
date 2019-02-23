@@ -3,6 +3,8 @@ package algo
 import "github.com/cxjwin/go-algocasts/datastructure"
 import "github.com/cxjwin/go-algocasts/utils"
 
+// https://leetcode.com/problems/balanced-binary-tree/
+
 func getHeight(root *ds.Tree) int {
 	if root == nil {
 		return 0

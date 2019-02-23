@@ -2,6 +2,8 @@ package algo
 
 import "github.com/cxjwin/go-algocasts/datastructure"
 
+// https://leetcode.com/problems/linked-list-cycle/
+
 func linkedListHasCycle(head *ds.ListNode) bool {
 	fast, slow := head, head
 

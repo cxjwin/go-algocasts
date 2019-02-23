@@ -1,5 +1,7 @@
 package algo
 
+// https://leetcode.com/problems/ugly-number/
+
 func isUglyNumber(num int) bool {
 	if num <= 0 {
 		return false

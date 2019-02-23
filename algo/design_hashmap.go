@@ -1,5 +1,7 @@
 package algo
 
+// https://leetcode.com/problems/design-hashmap/
+
 // Pair key/value pair
 type Pair struct {
 	Key int
