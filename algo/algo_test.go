@@ -1262,3 +1262,99 @@ func TestStrStr(t *testing.T) {
 		t.Error("8 - Output: 0")
 	}
 }
+
+func TestMaxProfit(t *testing.T) {
+	nums := []int{7, 1, 5, 3, 6, 4}
+	res := maxProfitBruteForce(nums)
+	if res != 5 {
+		t.Error("1 - Output: 5")
+	}
+	res = maxProfitOnePass(nums)
+	if res != 5 {
+		t.Error("2 - Output: 5")
+	}
+}
+
+func TestMinPathSum(t *testing.T) {
+	grid := [][]int{
+		{1, 3, 1},
+		{1, 5, 1},
+		{4, 2, 1},
+	}
+	res := minPathSum(grid)
+	if res != 7 {
+		t.Error("1 - min path sum is 7")
+	}
+	res = minPathSum1dArray(grid)
+	if res != 7 {
+		t.Error("2 - min path sum is 7")
+	}
+}
+
+func Test3Sum(t *testing.T) {
+	nums := []int{-1, 0, 1, 2, -1, -4}
+	res := threeSumToZeroOn2(nums)
+	fmt.Println(res)
+}
+
+func TestSqrt(t *testing.T) {
+	if sqrtBinarySearch(4) != 2 {
+		t.Error("1 - sqrt 4 is 2")
+	}
+	if sqrtNewton(4) != 2 {
+		t.Error("2 - sqrt 4 is 2")
+	}
+
+	if sqrtBinarySearch(10) != 3 {
+		t.Error("3 - sqrt 4 is 2")
+	}
+	if sqrtNewton(10) != 3 {
+		t.Error("4 - sqrt 4 is 2")
+	}
+}
+
+func TestHammingDistance(t *testing.T) {
+	res := hammingDistance(3, 8)
+	if res != 3 {
+		t.Error("hamming distance is 3")
+	}
+}
+
+func TestSingleNonDuplicate(t *testing.T) {
+	nums := []int{1, 1, 2, 3, 3, 4, 4, 8, 8}
+	res := singleNonDuplicateWithXOR(nums)
+	if res != 2 {
+		t.Error("1 - Output: 2")
+	}
+	res = singleNonDuplicateBinarySearch(nums)
+	if res != 2 {
+		t.Error("2 - Output: 2")
+	}
+}
+
+func TestKthLargest(t *testing.T) {
+	arr := []int{4, 5, 8, 2}
+	k := 3
+	kl := NewKthLargest(k, arr)
+	fmt.Println(kl)
+	res := kl.Add(3) // returns 4
+	if res != 4 {
+		t.Error("1 - returns 4")
+	}
+	res = kl.Add(5) // returns 5
+	if res != 5 {
+		t.Error("2 - returns 5")
+	}
+	res = kl.Add(10) // returns 5
+	if res != 5 {
+		t.Error("3 - returns 5")
+	}
+	res = kl.Add(9) // returns 8
+	if res != 8 {
+		t.Error("4 - returns 8")
+	}
+	res = kl.Add(4) // // returns 8
+	if res != 8 {
+		t.Error("5 - returns 8")
+	}
+}
