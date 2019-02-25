@@ -1,5 +1,7 @@
 package algo
 
+// https://leetcode.com/problems/lru-cache/
+
 // LRUCache LRU cache struct
 type LRUCache struct {
 	capacity int

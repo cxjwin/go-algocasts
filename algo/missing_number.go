@@ -2,6 +2,8 @@ package algo
 
 import "sort"
 
+// https://leetcode.com/problems/missing-number/
+
 func missingNumberUsingSum(nums []int) int {
 	sum := 0
 

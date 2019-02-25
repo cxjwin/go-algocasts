@@ -2,6 +2,8 @@ package algo
 
 import "github.com/cxjwin/go-algocasts/utils"
 
+// https://leetcode.com/problems/median-of-two-sorted-arrays/
+
 func medianOfTwoSortedArrays(nums1 []int, nums2 []int) float32 {
 	totalLen := len(nums1) + len(nums2)
 	if (totalLen & 1) == 1 {

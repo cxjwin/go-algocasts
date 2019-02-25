@@ -5,6 +5,8 @@ import (
 	"github.com/golang-collections/collections/stack"
 )
 
+// https://leetcode.com/problems/palindrome-linked-list/
+
 func isPalindromeLinkedListUsingStack(list *ds.List) bool {
 	if list == nil || list.Len == 0 {
 		return false

@@ -2,6 +2,8 @@ package algo
 
 import "github.com/cxjwin/go-algocasts/datastructure"
 
+// https://leetcode.com/problems/merge-k-sorted-lists/
+
 func mergeKSortedLists(lists []*ds.ListNode) *ds.ListNode {
 	if lists == nil || len(lists) == 0 {
 		return nil

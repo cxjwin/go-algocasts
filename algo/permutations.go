@@ -1,5 +1,7 @@
 package algo
 
+// https://leetcode.com/problems/permutations/
+
 func factorial(n int) (result int) {
 	if n == 0 {
 		return 1

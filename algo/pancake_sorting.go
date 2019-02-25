@@ -1,5 +1,7 @@
 package algo
 
+// https://leetcode.com/problems/pancake-sorting/
+
 func findMax(nums []int, n int) int {
 	mi := 0
 	for i := 0; i < n; i++ {

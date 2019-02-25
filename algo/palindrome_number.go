@@ -2,6 +2,8 @@ package algo
 
 import "strconv"
 
+// https://leetcode.com/problems/palindrome-number/
+
 func isPalindromeNumberUseString(num int) bool {
 	str := strconv.Itoa(num)
 	i := 0

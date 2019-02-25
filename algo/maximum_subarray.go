@@ -3,6 +3,8 @@ package algo
 import "math"
 import "github.com/cxjwin/go-algocasts/utils"
 
+// https://leetcode.com/problems/maximum-subarray/
+
 func maxSubArray(nums []int) int {
 	max := int(math.MinInt32)
 	cur := 0

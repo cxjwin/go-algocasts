@@ -6,6 +6,8 @@ import (
 	"github.com/golang-collections/collections/stack"
 )
 
+// https://leetcode.com/problems/min-stack/
+
 // MinStack min stack struct
 type MinStack struct {
 	min   *stack.Stack

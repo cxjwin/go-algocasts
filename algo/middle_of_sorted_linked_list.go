@@ -2,6 +2,8 @@ package algo
 
 import "github.com/cxjwin/go-algocasts/datastructure"
 
+// https://leetcode.com/problems/middle-of-sorted-linked-list/
+
 func middleNodeTwoPass(head *ds.ListNode) *ds.ListNode {
 	if head == nil || head.Next == nil {
 		return head

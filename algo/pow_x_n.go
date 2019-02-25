@@ -1,5 +1,7 @@
 package algo
 
+// https://leetcode.com/problems/powx-n/
+
 func pow(x float64, n int) float64 {
 	absN := n
 	if n < 0 {

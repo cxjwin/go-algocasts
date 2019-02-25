@@ -2,6 +2,8 @@ package algo
 
 import "github.com/cxjwin/go-algocasts/utils"
 
+// https://leetcode.com/problems/minimum-path-sum/
+
 func minPathSum(grid [][]int) int {
 	if grid == nil || len(grid) == 0 || len(grid[0]) == 0 {
 		return 0

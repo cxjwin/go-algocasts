@@ -2,6 +2,8 @@ package algo
 
 import "github.com/cxjwin/go-algocasts/datastructure"
 
+// https://leetcode.com/problems/partition-list/
+
 func partitionList(head *ds.ListNode, x int) *ds.ListNode {
 	if head == nil || head.Next == nil {
 		return head

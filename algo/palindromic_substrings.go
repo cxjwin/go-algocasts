@@ -1,5 +1,7 @@
 package algo
 
+// https://leetcode.com/problems/palindromic-substrings/
+
 func countPalindromicSubstringsDynamicProgramming(str string) int {
 	n := len(str)
 	if n == 0 {

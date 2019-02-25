@@ -1,5 +1,7 @@
 package algo
 
+// https://leetcode.com/problems/majority-element/
+
 func majorityElementWithMap(nums []int) int {
 	m := make(map[int]int)
 	max := 1
