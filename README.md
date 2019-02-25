@@ -83,6 +83,10 @@ Algorithms source code & test code
 
 Some data structure to use in algorithm source code
 
+### leetcode
+
+**New source code will move to this directory, each problem will be a single module, that should be easy to testing.**
+
 ### sort
 
 Sort source code & test code
