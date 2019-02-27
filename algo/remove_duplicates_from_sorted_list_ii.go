@@ -1,13 +1,13 @@
 package algo
 
-import "github.com/cxjwin/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
-func removeDuplicatesFromSortedListII(head *ds.ListNode) *ds.ListNode {
-	dummy := &ds.ListNode{Value: 0, Next: head}
+func removeDuplicatesFromSortedListII(head *ListNode) *ListNode {
+	dummy := &ListNode{Val: 0, Next: head}
 	prev, cur := dummy, dummy.Next
 
 	for cur != nil {
-		for cur.Next != nil && cur.Value == cur.Next.Value {
+		for cur.Next != nil && cur.Val == cur.Next.Val {
 			cur = cur.Next
 		}
 		if prev.Next != cur {

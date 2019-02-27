@@ -1,13 +1,8 @@
 package leetcode106
 
-// https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
-// TreeNode - Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+// https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
 
 func buildTreeWithMap(post []int, postStart int, postEnd int, inMap map[int]int, inStart int) *TreeNode {
 	if postStart > postEnd {

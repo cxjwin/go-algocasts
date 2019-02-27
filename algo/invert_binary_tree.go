@@ -1,10 +1,10 @@
 package algo
 
-import "github.com/cxjwin/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
 // https://leetcode.com/problems/invert-binary-tree/
 
-func invertTreeRecursive(root *ds.Tree) *ds.Tree {
+func invertTreeRecursive(root *TreeNode) *TreeNode {
 	if root == nil {
 		return root
 	}
@@ -17,12 +17,12 @@ func invertTreeRecursive(root *ds.Tree) *ds.Tree {
 	return root
 }
 
-func invertTreeInterative(root *ds.Tree) *ds.Tree {
+func invertTreeInterative(root *TreeNode) *TreeNode {
 	if root == nil {
 		return root
 	}
 
-	queue := []*ds.Tree{root}
+	queue := []*TreeNode{root}
 
 	for len(queue) != 0 {
 		// pop a node

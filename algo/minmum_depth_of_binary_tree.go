@@ -1,14 +1,14 @@
 package algo
 
 import (
-	"github.com/cxjwin/go-algocasts/datastructure"
+	. "github.com/cxjwin/go-algocasts/datastructure"
 	"github.com/cxjwin/go-algocasts/utils"
 	"github.com/golang-collections/collections/queue"
 )
 
 // https://leetcode.com/problems/minimum-depth-of-binary-tree/
 
-func minDepthOfBinaryTreeRecursive(tree *ds.Tree) int {
+func minDepthOfBinaryTreeRecursive(tree *TreeNode) int {
 	if tree == nil {
 		return 0
 	}
@@ -28,7 +28,7 @@ func minDepthOfBinaryTreeRecursive(tree *ds.Tree) int {
 	return utils.IntMin(minDepthOfBinaryTreeRecursive(tree.Left), minDepthOfBinaryTreeRecursive(tree.Right)) + 1
 }
 
-func minDepthOfBinaryTreeIterative(tree *ds.Tree) int {
+func minDepthOfBinaryTreeIterative(tree *TreeNode) int {
 	if tree == nil {
 		return 0
 	}
@@ -40,7 +40,7 @@ func minDepthOfBinaryTreeIterative(tree *ds.Tree) int {
 	for queue.Len() != 0 {
 		size := queue.Len()
 		for i := 0; i < size; i++ {
-			node := queue.Dequeue().(*ds.Tree)
+			node := queue.Dequeue().(*TreeNode)
 			if node.Left == nil && node.Right == nil {
 				return depth
 			}

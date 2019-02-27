@@ -19,12 +19,12 @@ func TestLinkedList(t *testing.T) {
 		t.Error("list's len is 6")
 	}
 
-	if head.Value != 1 {
+	if head.Val != 1 {
 		t.Error("list's head is 1")
 	}
 
 	tail := list.Tail
-	if tail.Value != 6 {
+	if tail.Val != 6 {
 		t.Error("list's tail is 6")
 	}
 

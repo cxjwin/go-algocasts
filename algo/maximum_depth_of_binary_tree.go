@@ -1,14 +1,14 @@
 package algo
 
-// https://leetcode.com/problems/maximum-depth-of-binary-tree/
-
 import (
-	"github.com/cxjwin/go-algocasts/datastructure"
+	. "github.com/cxjwin/go-algocasts/datastructure"
 	"github.com/cxjwin/go-algocasts/utils"
 	"github.com/golang-collections/collections/queue"
 )
 
-func maxDepthOfBinaryTree(root *ds.Tree) int {
+// https://leetcode.com/problems/maximum-depth-of-binary-tree/
+
+func maxDepthOfBinaryTree(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
@@ -16,7 +16,7 @@ func maxDepthOfBinaryTree(root *ds.Tree) int {
 	return utils.IntMax(maxDepthOfBinaryTree(root.Left), maxDepthOfBinaryTree(root.Right)) + 1
 }
 
-func maxDepthOfBinaryTreeIterative(root *ds.Tree) int {
+func maxDepthOfBinaryTreeIterative(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
@@ -28,7 +28,7 @@ func maxDepthOfBinaryTreeIterative(root *ds.Tree) int {
 	for queue.Len() != 0 {
 		size := queue.Len()
 		for i := 0; i < size; i++ {
-			node := queue.Dequeue().(*ds.Tree)
+			node := queue.Dequeue().(*TreeNode)
 			if node.Left != nil {
 				queue.Enqueue(node.Left)
 			}

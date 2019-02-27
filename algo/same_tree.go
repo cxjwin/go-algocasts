@@ -1,23 +1,23 @@
 package algo
 
 import (
-	"github.com/cxjwin/go-algocasts/datastructure"
+	. "github.com/cxjwin/go-algocasts/datastructure"
 	"github.com/golang-collections/collections/stack"
 )
 
-func isSameTreeRecusive(p *ds.Tree, q *ds.Tree) bool {
+func isSameTreeRecusive(p *TreeNode, q *TreeNode) bool {
 	if p == nil && q == nil {
 		return true
 	}
 	if p == nil || q == nil {
 		return false
 	}
-	return p.Value == q.Value &&
+	return p.Val == q.Val &&
 		isSameTreeRecusive(p.Left, q.Left) &&
 		isSameTreeRecusive(p.Right, q.Right)
 }
 
-func isSameTreeIterative(p *ds.Tree, q *ds.Tree) bool {
+func isSameTreeIterative(p *TreeNode, q *TreeNode) bool {
 	if p == nil && q == nil {
 		return true
 	}
@@ -41,9 +41,9 @@ func isSameTreeIterative(p *ds.Tree, q *ds.Tree) bool {
 			return false
 		}
 
-		tN1 := n1.(*ds.Tree)
-		tN2 := n2.(*ds.Tree)
-		if tN1.Value != tN2.Value {
+		tN1 := n1.(*TreeNode)
+		tN2 := n2.(*TreeNode)
+		if tN1.Val != tN2.Val {
 			return false
 		}
 

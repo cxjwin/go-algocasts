@@ -1,13 +1,8 @@
 package leetcode144
 
-// https://leetcode.com/problems/binary-tree-preorder-traversal/
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
-// TreeNode - Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+// https://leetcode.com/problems/binary-tree-preorder-traversal/
 
 func preorderTraversalRecursive(root *TreeNode, res *[]int) {
 	if root == nil {

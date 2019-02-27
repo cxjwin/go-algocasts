@@ -1,23 +1,23 @@
 package algo
 
-import "github.com/cxjwin/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
 // https://leetcode.com/problems/partition-list/
 
-func partitionList(head *ds.ListNode, x int) *ds.ListNode {
+func partitionList(head *ListNode, x int) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
 
-	s := &ds.ListNode{}
-	g := &ds.ListNode{}
+	s := &ListNode{}
+	g := &ListNode{}
 
 	p := head
 	ps := s
 	pg := g
 
 	for p != nil {
-		if p.Value.(int) < x {
+		if p.Val < x {
 			ps.Next = p
 			ps = ps.Next
 		} else {

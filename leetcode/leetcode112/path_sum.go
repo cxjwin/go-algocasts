@@ -1,13 +1,8 @@
 package leetcode112
 
-// https://leetcode.com/problems/path-sum/
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
-// TreeNode - Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+// https://leetcode.com/problems/path-sum/
 
 func hasPathSum(root *TreeNode, sum int) bool {
 	if root == nil {

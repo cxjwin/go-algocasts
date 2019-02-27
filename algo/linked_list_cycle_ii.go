@@ -1,15 +1,15 @@
 package algo
 
-import "github.com/cxjwin/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
 // https://leetcode.com/problems/linked-list-cycle-ii/
 
-func firstNodeOfCycleMap(head *ds.ListNode) *ds.ListNode {
+func firstNodeOfCycleMap(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return nil
 	}
 
-	m := make(map[*ds.ListNode]int)
+	m := make(map[*ListNode]int)
 	p := head
 
 	for p.Next != nil {
@@ -18,14 +18,14 @@ func firstNodeOfCycleMap(head *ds.ListNode) *ds.ListNode {
 			return p
 		}
 
-		m[p] = p.Value.(int)
+		m[p] = p.Val
 		p = p.Next
 	}
 
 	return nil
 }
 
-func firstNodeOfCycle2Pointer(head *ds.ListNode) *ds.ListNode {
+func firstNodeOfCycle2Pointer(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return nil
 	}

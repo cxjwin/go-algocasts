@@ -1,9 +1,9 @@
 package algo
 
-import "github.com/cxjwin/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
-func removeNthNodeFromEndOfList(head *ds.ListNode, n int) *ds.ListNode {
-	dummy := &ds.ListNode{Value: 0, Next: head}
+func removeNthNodeFromEndOfList(head *ListNode, n int) *ListNode {
+	dummy := &ListNode{Val: 0, Next: head}
 	p, q := dummy, dummy
 
 	i := n

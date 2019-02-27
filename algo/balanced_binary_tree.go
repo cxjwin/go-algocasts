@@ -1,11 +1,11 @@
 package algo
 
-import "github.com/cxjwin/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 import "github.com/cxjwin/go-algocasts/utils"
 
 // https://leetcode.com/problems/balanced-binary-tree/
 
-func getHeight(root *ds.Tree) int {
+func getHeight(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
@@ -15,7 +15,7 @@ func getHeight(root *ds.Tree) int {
 	return utils.IntMax(left, right) + 1
 }
 
-func getHeightAndCheck(root *ds.Tree) int {
+func getHeightAndCheck(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
@@ -37,7 +37,7 @@ func getHeightAndCheck(root *ds.Tree) int {
 	return utils.IntMax(left, right) + 1
 }
 
-func isBalancedTreeTopDown(root *ds.Tree) bool {
+func isBalancedTreeTopDown(root *TreeNode) bool {
 	if root == nil {
 		return true
 	}
@@ -47,7 +47,7 @@ func isBalancedTreeTopDown(root *ds.Tree) bool {
 		isBalancedTreeTopDown(root.Right)
 }
 
-func isBalancedTreeBottomUp(root *ds.Tree) bool {
+func isBalancedTreeBottomUp(root *TreeNode) bool {
 	if root == nil {
 		return true
 	}

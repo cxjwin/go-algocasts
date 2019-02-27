@@ -2,22 +2,22 @@ package ds
 
 import "fmt"
 
-// Tree - tree struct
-type Tree struct {
-	Left  *Tree
-	Value interface{}
-	Right *Tree
+// TreeNode - Definition for a binary tree node.
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 // NewTree - new a tree point
-func NewTree(v interface{}) *Tree {
-	return &Tree{nil, v, nil}
+func NewTree(v int) *TreeNode {
+	return &TreeNode{v, nil, nil}
 }
 
 // Insert - insert node to tree
-func (t *Tree) Insert(v interface{}, left bool) *Tree {
+func (t *TreeNode) Insert(v int, left bool) *TreeNode {
 	if t == nil {
-		return &Tree{nil, v, nil}
+		return &TreeNode{v, nil, nil}
 	}
 	if left {
 		t.Left = t.Left.Insert(v, true)
@@ -29,12 +29,12 @@ func (t *Tree) Insert(v interface{}, left bool) *Tree {
 }
 
 // Desc - description of tree
-func (t *Tree) Desc() {
+func (t *TreeNode) Desc() {
 	if t == nil {
 		return
 	}
 
-	fmt.Println(t.Value)
+	fmt.Println(t.Val)
 	t.Left.Desc()
 	t.Right.Desc()
 }

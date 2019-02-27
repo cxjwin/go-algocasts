@@ -4,8 +4,8 @@ import "fmt"
 
 // ListNode - node
 type ListNode struct {
-	Value interface{}
-	Next  *ListNode
+	Val  int
+	Next *ListNode
 }
 
 // List - list
@@ -16,16 +16,16 @@ type List struct {
 }
 
 // Insert - insert a value
-func (list *List) Insert(v interface{}) *List {
+func (list *List) Insert(v int) *List {
 	if list.Head == nil {
-		node := ListNode{Value: v, Next: nil}
+		node := ListNode{Val: v, Next: nil}
 		list.Head = &node
 		list.Tail = list.Head
 		list.Len = 1
 		return list
 	}
 
-	node := ListNode{Value: v, Next: nil}
+	node := ListNode{Val: v, Next: nil}
 
 	tail := list.Tail
 	tail.Next = &node
@@ -42,7 +42,7 @@ func (list *List) Desc() {
 
 	node := list.Head
 	for node != nil {
-		fmt.Printf("v: %v\n", node.Value)
+		fmt.Printf("v: %v\n", node.Val)
 		node = node.Next
 	}
 }

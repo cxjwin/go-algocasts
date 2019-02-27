@@ -1,13 +1,13 @@
 package algo
 
 import (
-	"github.com/cxjwin/go-algocasts/datastructure"
+	. "github.com/cxjwin/go-algocasts/datastructure"
 	"github.com/golang-collections/collections/stack"
 )
 
 // https://leetcode.com/problems/palindrome-linked-list/
 
-func isPalindromeLinkedListUsingStack(list *ds.List) bool {
+func isPalindromeLinkedListUsingStack(list *List) bool {
 	if list == nil || list.Len == 0 {
 		return false
 	}
@@ -20,7 +20,7 @@ func isPalindromeLinkedListUsingStack(list *ds.List) bool {
 	idx := 0
 	// iterate first half
 	for idx < mid {
-		s.Push(node.Value)
+		s.Push(node.Val)
 		node = node.Next
 		idx++
 	}
@@ -33,7 +33,7 @@ func isPalindromeLinkedListUsingStack(list *ds.List) bool {
 	// iterate second half
 	for node != nil {
 		num := s.Pop()
-		if num != node.Value {
+		if num != node.Val {
 			return false
 		}
 		node = node.Next
@@ -42,14 +42,14 @@ func isPalindromeLinkedListUsingStack(list *ds.List) bool {
 	return true
 }
 
-func isPalindromeReverseLinkedList(list *ds.List) bool {
+func isPalindromeReverseLinkedList(list *List) bool {
 	if list == nil || list.Len == 0 {
 		return false
 	}
 
 	mid := list.Len / 2
 
-	var pre *ds.ListNode
+	var pre *ListNode
 	cur := list.Head
 	idx := 0
 	// iterate first half
@@ -68,7 +68,7 @@ func isPalindromeReverseLinkedList(list *ds.List) bool {
 
 	// iterate second half
 	for pre != nil && cur != nil {
-		if pre.Value != cur.Value {
+		if pre.Val != cur.Val {
 			return false
 		}
 		pre = pre.Next

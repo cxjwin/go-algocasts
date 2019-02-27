@@ -1,13 +1,8 @@
 package leetcode105
 
-// https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
-// TreeNode - Definition for a binary tree node.
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+// https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 
 func buildTreeWithMap(pre []int, preStart int, preEnd int, inMap map[int]int, inStart int) *TreeNode {
 	if preStart > preEnd {

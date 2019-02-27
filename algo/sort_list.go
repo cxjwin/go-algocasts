@@ -1,24 +1,24 @@
 package algo
 
-import "github.com/cxjwin/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
-func swapListNode(l *ds.ListNode, r *ds.ListNode) {
-	temp := l.Value
-	l.Value = r.Value
-	r.Value = temp
+func swapListNode(l *ListNode, r *ListNode) {
+	temp := l.Val
+	l.Val = r.Val
+	r.Val = temp
 }
 
-func quickSort(head *ds.ListNode, end *ds.ListNode) {
+func quickSort(head *ListNode, end *ListNode) {
 	if head == end || head.Next == end {
 		return
 	}
 
-	pivot := head.Value
+	pivot := head.Val
 	s := head
 	f := s.Next
 
 	for f != end {
-		if f.Value.(int) <= pivot.(int) {
+		if f.Val <= pivot {
 			s = s.Next
 			swapListNode(s, f)
 		}
@@ -30,12 +30,12 @@ func quickSort(head *ds.ListNode, end *ds.ListNode) {
 	quickSort(s.Next, end)
 }
 
-func quickSortList(head *ds.ListNode) *ds.ListNode {
+func quickSortList(head *ListNode) *ListNode {
 	quickSort(head, nil)
 	return head
 }
 
-func mergeSortList(head *ds.ListNode) *ds.ListNode {
+func mergeSortList(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}

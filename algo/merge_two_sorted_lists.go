@@ -1,15 +1,15 @@
 package algo
 
-import "github.com/cxjwin/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
 // https://leetcode.com/problems/merge-two-sorted-lists/
 
-func mergeTwoSortedList(l *ds.ListNode, r *ds.ListNode) *ds.ListNode {
-	dummy := &ds.ListNode{Value: 0, Next: nil}
+func mergeTwoSortedList(l *ListNode, r *ListNode) *ListNode {
+	dummy := &ListNode{Val: 0, Next: nil}
 	p := dummy
 
 	for l != nil && r != nil {
-		if l.Value.(int) < r.Value.(int) {
+		if l.Val < r.Val {
 			p.Next = l
 			l = l.Next
 		} else {

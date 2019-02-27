@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/cxjwin/go-algocasts/datastructure"
+	. "github.com/cxjwin/go-algocasts/datastructure"
 )
 
 func TestPascalTriangle(t *testing.T) {
@@ -53,7 +53,7 @@ func TestSumOfTwoIntegers(t *testing.T) {
 }
 
 func TestSymmetricTree(t *testing.T) {
-	root := ds.NewTree(1)
+	root := NewTree(1)
 
 	// left
 	l1 := root.Insert(2, true)
@@ -105,11 +105,11 @@ func TestIsPalindrome(t *testing.T) {
 }
 
 func TestSameTree1(t *testing.T) {
-	t1 := ds.NewTree(1)
+	t1 := NewTree(1)
 	t1.Insert(2, true)
 	t1.Insert(3, false)
 
-	t2 := ds.NewTree(1)
+	t2 := NewTree(1)
 	t2.Insert(2, true)
 	t2.Insert(3, false)
 
@@ -123,11 +123,11 @@ func TestSameTree1(t *testing.T) {
 	}
 }
 func TestSameTree2(t *testing.T) {
-	t1 := ds.NewTree(1)
+	t1 := NewTree(1)
 	t1.Insert(2, true)
 	t1.Insert(1, false)
 
-	t2 := ds.NewTree(1)
+	t2 := NewTree(1)
 	t2.Insert(1, true)
 	t2.Insert(2, false)
 
@@ -142,7 +142,7 @@ func TestSameTree2(t *testing.T) {
 }
 
 func TestReverseLinkedListInterative(t *testing.T) {
-	list := &ds.List{Head: nil, Tail: nil}
+	list := &List{Head: nil, Tail: nil}
 	list.Insert(1)
 	list.Insert(2)
 	list.Insert(3)
@@ -155,11 +155,11 @@ func TestReverseLinkedListInterative(t *testing.T) {
 
 	list = reverseListIterative(list)
 
-	if list.Head.Value != 6 {
+	if list.Head.Val != 6 {
 		t.Error("Reversed list's head is 6")
 	}
 
-	if list.Tail.Value != 1 {
+	if list.Tail.Val != 1 {
 		t.Error("Reversed list's tail is 1")
 	}
 
@@ -170,7 +170,7 @@ func TestReverseLinkedListInterative(t *testing.T) {
 	list.Desc()
 }
 func TestReverseLinkedListRecursive(t *testing.T) {
-	list := &ds.List{Head: nil, Tail: nil}
+	list := &List{Head: nil, Tail: nil}
 	list.Insert(1)
 	list.Insert(2)
 	list.Insert(3)
@@ -183,11 +183,11 @@ func TestReverseLinkedListRecursive(t *testing.T) {
 
 	reverseListRecursive(list)
 
-	if list.Head.Value != 6 {
+	if list.Head.Val != 6 {
 		t.Error("Reversed list's head is 6")
 	}
 
-	if list.Tail.Value != 1 {
+	if list.Tail.Val != 1 {
 		t.Error("Reversed list's tail is 1")
 	}
 
@@ -296,10 +296,10 @@ func TestIsPalindromeNumber(t *testing.T) {
 }
 
 func TestIsPalindromeLinkedListUsingStack(t *testing.T) {
-	type testFunc func(*ds.List) bool
+	type testFunc func(*List) bool
 
 	isPalindromeLinkedList := func(f testFunc, t *testing.T) {
-		list := &ds.List{Head: nil, Tail: nil}
+		list := &List{Head: nil, Tail: nil}
 		list.Insert(1)
 		list.Insert(2)
 		list.Desc()
@@ -311,7 +311,7 @@ func TestIsPalindromeLinkedListUsingStack(t *testing.T) {
 
 		fmt.Println("========== line ==========")
 
-		list = &ds.List{Head: nil, Tail: nil}
+		list = &List{Head: nil, Tail: nil}
 		list.Insert(1)
 		list.Insert(2)
 		list.Insert(2)
@@ -326,7 +326,7 @@ func TestIsPalindromeLinkedListUsingStack(t *testing.T) {
 
 		fmt.Println("========== line ==========")
 
-		list = &ds.List{Head: nil, Tail: nil}
+		list = &List{Head: nil, Tail: nil}
 		list.Insert(1)
 		list.Insert(2)
 		list.Insert(3)
@@ -379,10 +379,10 @@ func TestMissingNumber(t *testing.T) {
 }
 
 func TestMinmumDepthOfBindaryTree(t *testing.T) {
-	type testFunc func(*ds.Tree) int
+	type testFunc func(*TreeNode) int
 
 	innerFunc := func(f testFunc, t *testing.T) {
-		root := ds.NewTree(1)
+		root := NewTree(1)
 		root.Insert(9, true)
 		node := root.Insert(20, false)
 		node.Insert(15, true)
@@ -435,17 +435,17 @@ func TestMinStack2(t *testing.T) {
 }
 
 func TestMergeTwoSortedList(t *testing.T) {
-	l := &ds.ListNode{Value: 1, Next: nil}
-	l1 := &ds.ListNode{Value: 3, Next: l}
+	l := &ListNode{Val: 1, Next: nil}
+	l1 := &ListNode{Val: 3, Next: l}
 	l.Next = l1
-	l2 := &ds.ListNode{Value: 5, Next: l1}
+	l2 := &ListNode{Val: 5, Next: l1}
 	l1.Next = l2
 	l2.Next = nil
 
-	r := &ds.ListNode{Value: 2, Next: nil}
-	r1 := &ds.ListNode{Value: 4, Next: r}
+	r := &ListNode{Val: 2, Next: nil}
+	r1 := &ListNode{Val: 4, Next: r}
 	r.Next = r1
-	r2 := &ds.ListNode{Value: 6, Next: r1}
+	r2 := &ListNode{Val: 6, Next: r1}
 	r1.Next = r2
 	r2.Next = nil
 
@@ -453,7 +453,7 @@ func TestMergeTwoSortedList(t *testing.T) {
 
 	arr := []int{}
 	for res != nil {
-		arr = append(arr, res.Value.(int))
+		arr = append(arr, res.Val)
 		res = res.Next
 	}
 
@@ -536,10 +536,10 @@ func TestMaximunSubarray(t *testing.T) {
 }
 
 func TestMaximumDepthOfBinaryTree(t *testing.T) {
-	type testFunc func(root *ds.Tree) int
+	type testFunc func(root *TreeNode) int
 
 	testBody := func(f testFunc, t *testing.T) {
-		root := ds.NewTree(3)
+		root := NewTree(3)
 		root.Insert(9, true)
 		node := root.Insert(20, false)
 		node.Insert(15, true)
@@ -654,30 +654,30 @@ func TestDesignHashMap(t *testing.T) {
 
 func TestIntersectionOfTwoLinkedList(t *testing.T) {
 
-	type testFunc func(headA, headB *ds.ListNode) *ds.ListNode
+	type testFunc func(headA, headB *ListNode) *ListNode
 
 	testBody := func(f testFunc, t *testing.T) {
 		// 4->1->8->4->5
 		// 5->0->1->8->4->5
 
-		headA := &ds.ListNode{Value: 4, Next: nil}
-		a1 := &ds.ListNode{Value: 1, Next: nil}
+		headA := &ListNode{Val: 4, Next: nil}
+		a1 := &ListNode{Val: 1, Next: nil}
 		headA.Next = a1
 
-		headB := &ds.ListNode{Value: 5, Next: nil}
-		b1 := &ds.ListNode{Value: 0, Next: nil}
+		headB := &ListNode{Val: 5, Next: nil}
+		b1 := &ListNode{Val: 0, Next: nil}
 		headB.Next = b1
-		b2 := &ds.ListNode{Value: 1, Next: nil}
+		b2 := &ListNode{Val: 1, Next: nil}
 		b1.Next = b2
 
-		ab1 := &ds.ListNode{Value: 8, Next: nil}
+		ab1 := &ListNode{Val: 8, Next: nil}
 		a1.Next = ab1
 		b2.Next = ab1
 
-		ab2 := &ds.ListNode{Value: 4, Next: nil}
+		ab2 := &ListNode{Val: 4, Next: nil}
 		ab1.Next = ab2
 
-		ab3 := &ds.ListNode{Value: 5, Next: nil}
+		ab3 := &ListNode{Val: 5, Next: nil}
 		ab2.Next = ab3
 
 		node := f(headA, headB)
@@ -692,74 +692,74 @@ func TestIntersectionOfTwoLinkedList(t *testing.T) {
 
 func TestRemoveNthNodeFromEndOfList(t *testing.T) {
 	// 1->2->3->4->5
-	head := &ds.ListNode{Value: 1, Next: nil}
-	n1 := &ds.ListNode{Value: 2, Next: nil}
+	head := &ListNode{Val: 1, Next: nil}
+	n1 := &ListNode{Val: 2, Next: nil}
 	head.Next = n1
-	n2 := &ds.ListNode{Value: 3, Next: nil}
+	n2 := &ListNode{Val: 3, Next: nil}
 	n1.Next = n2
-	n3 := &ds.ListNode{Value: 4, Next: nil}
+	n3 := &ListNode{Val: 4, Next: nil}
 	n2.Next = n3
-	n4 := &ds.ListNode{Value: 5, Next: nil}
+	n4 := &ListNode{Val: 5, Next: nil}
 	n3.Next = n4
 
 	head = removeNthNodeFromEndOfList(head, 2)
 
-	if head.Next.Next.Value != 3 || head.Next.Next.Next.Value != 5 {
+	if head.Next.Next.Val != 3 || head.Next.Next.Next.Val != 5 {
 		t.Error("4 elements, 3th is 3, last is 5")
 	}
 }
 
 func TestMinSlice(t *testing.T) {
-	node := &ds.ListNode{Value: 1, Next: nil}
+	node := &ListNode{Val: 1, Next: nil}
 	s := addToMinSlice(nil, node)
 	n := s[0]
-	if n.Value != 1 {
+	if n.Val != 1 {
 		t.Error("value is 1")
 	}
-	node = &ds.ListNode{Value: 1, Next: nil}
+	node = &ListNode{Val: 1, Next: nil}
 	s = addToMinSlice(s, node)
-	node = &ds.ListNode{Value: 0, Next: nil}
+	node = &ListNode{Val: 0, Next: nil}
 	s = addToMinSlice(s, node)
 	n1 := s[0]
 	n2 := s[1]
 	n3 := s[2]
-	if n1.Value != 0 || n2.Value != 1 || n3.Value != 1 {
+	if n1.Val != 0 || n2.Val != 1 || n3.Val != 1 {
 		t.Error("n1 value is 0, n2 value is 1, n3 value is 1")
 	}
 }
 func TestMergeKSortedListsMinClice(t *testing.T) {
-	type testFunc func(heads []*ds.ListNode) *ds.ListNode
+	type testFunc func(heads []*ListNode) *ListNode
 
 	testBody := func(f testFunc, t *testing.T) {
-		head1 := &ds.ListNode{Value: -1, Next: nil}
-		node := &ds.ListNode{Value: 1, Next: nil}
+		head1 := &ListNode{Val: -1, Next: nil}
+		node := &ListNode{Val: 1, Next: nil}
 		head1.Next = node
 
-		head2 := &ds.ListNode{Value: -3, Next: nil}
-		node = &ds.ListNode{Value: 1, Next: nil}
+		head2 := &ListNode{Val: -3, Next: nil}
+		node = &ListNode{Val: 1, Next: nil}
 		head2.Next = node
-		node = &ds.ListNode{Value: 4, Next: nil}
+		node = &ListNode{Val: 4, Next: nil}
 		head2.Next.Next = node
 
-		head3 := &ds.ListNode{Value: -2, Next: nil}
-		node = &ds.ListNode{Value: -1, Next: nil}
+		head3 := &ListNode{Val: -2, Next: nil}
+		node = &ListNode{Val: -1, Next: nil}
 		head3.Next = node
-		node = &ds.ListNode{Value: 0, Next: nil}
+		node = &ListNode{Val: 0, Next: nil}
 		head3.Next.Next = node
-		node = &ds.ListNode{Value: 2, Next: nil}
+		node = &ListNode{Val: 2, Next: nil}
 		head3.Next.Next.Next = node
 
-		head := mergeKSortedListsMinClice([]*ds.ListNode{head1, head2, head3})
+		head := mergeKSortedListsMinClice([]*ListNode{head1, head2, head3})
 		// [-3,-2,-1,-1,0,1,1,2,4]
-		if head.Value != -3 ||
-			head.Next.Value != -2 ||
-			head.Next.Next.Value != -1 ||
-			head.Next.Next.Next.Value != -1 ||
-			head.Next.Next.Next.Next.Value != 0 ||
-			head.Next.Next.Next.Next.Next.Value != 1 ||
-			head.Next.Next.Next.Next.Next.Next.Value != 1 ||
-			head.Next.Next.Next.Next.Next.Next.Next.Value != 2 ||
-			head.Next.Next.Next.Next.Next.Next.Next.Next.Value != 4 {
+		if head.Val != -3 ||
+			head.Next.Val != -2 ||
+			head.Next.Next.Val != -1 ||
+			head.Next.Next.Next.Val != -1 ||
+			head.Next.Next.Next.Next.Val != 0 ||
+			head.Next.Next.Next.Next.Next.Val != 1 ||
+			head.Next.Next.Next.Next.Next.Next.Val != 1 ||
+			head.Next.Next.Next.Next.Next.Next.Next.Val != 2 ||
+			head.Next.Next.Next.Next.Next.Next.Next.Next.Val != 4 {
 			t.Error("[-3,-2,-1,-1,0,1,1,2,4]")
 		}
 	}
@@ -771,17 +771,17 @@ func TestMergeKSortedListsMinClice(t *testing.T) {
 }
 
 func TestFirstNodeOfCycle(t *testing.T) {
-	type testFunc func(*ds.ListNode) *ds.ListNode
+	type testFunc func(*ListNode) *ListNode
 
 	testBody := func(f testFunc, t *testing.T) {
 		// [3, 2, 0, -4, 2]
-		head := &ds.ListNode{Value: 3, Next: nil}
-		node := &ds.ListNode{Value: 2, Next: nil}
+		head := &ListNode{Val: 3, Next: nil}
+		node := &ListNode{Val: 2, Next: nil}
 		keyNode := node
 		head.Next = node
-		node = &ds.ListNode{Value: 0, Next: nil}
+		node = &ListNode{Val: 0, Next: nil}
 		head.Next.Next = node
-		node = &ds.ListNode{Value: -4, Next: nil}
+		node = &ListNode{Val: -4, Next: nil}
 		head.Next.Next.Next = node
 		head.Next.Next.Next.Next = keyNode
 
@@ -796,23 +796,23 @@ func TestFirstNodeOfCycle(t *testing.T) {
 }
 
 func TestSortList(t *testing.T) {
-	type testFunc func(*ds.ListNode) *ds.ListNode
+	type testFunc func(*ListNode) *ListNode
 
 	testBody := func(f testFunc, t *testing.T) {
 		// 4->2->1->3
-		head := &ds.ListNode{Value: 4, Next: nil}
-		node := &ds.ListNode{Value: 2, Next: nil}
+		head := &ListNode{Val: 4, Next: nil}
+		node := &ListNode{Val: 2, Next: nil}
 		head.Next = node
-		node = &ds.ListNode{Value: 1, Next: nil}
+		node = &ListNode{Val: 1, Next: nil}
 		head.Next.Next = node
-		node = &ds.ListNode{Value: 3, Next: nil}
+		node = &ListNode{Val: 3, Next: nil}
 		head.Next.Next.Next = node
 
 		res := f(head)
-		if res.Value.(int) != 1 ||
-			res.Next.Value.(int) != 2 ||
-			res.Next.Next.Value.(int) != 3 ||
-			res.Next.Next.Next.Value.(int) != 4 {
+		if res.Val != 1 ||
+			res.Next.Val != 2 ||
+			res.Next.Next.Val != 3 ||
+			res.Next.Next.Next.Val != 4 {
 			t.Error("res : 1 -> 2 -> 3 -> 4")
 		}
 	}
@@ -822,33 +822,33 @@ func TestSortList(t *testing.T) {
 }
 
 func TestMiddleNode(t *testing.T) {
-	type testFunc func(*ds.ListNode) *ds.ListNode
+	type testFunc func(*ListNode) *ListNode
 
 	testBody := func(f testFunc, t *testing.T) {
 		//[1,2,3,4,5]
 
-		head := &ds.ListNode{Value: 1, Next: nil}
-		node := &ds.ListNode{Value: 2, Next: nil}
+		head := &ListNode{Val: 1, Next: nil}
+		node := &ListNode{Val: 2, Next: nil}
 		head.Next = node
-		node = &ds.ListNode{Value: 3, Next: nil}
+		node = &ListNode{Val: 3, Next: nil}
 		head.Next.Next = node
-		node = &ds.ListNode{Value: 4, Next: nil}
+		node = &ListNode{Val: 4, Next: nil}
 		head.Next.Next.Next = node
-		node = &ds.ListNode{Value: 5, Next: nil}
+		node = &ListNode{Val: 5, Next: nil}
 		head.Next.Next.Next.Next = node
 
 		mid := f(head)
 
-		if mid.Value.(int) != 3 {
+		if mid.Val != 3 {
 			t.Error("mid is 3")
 		}
 
-		node = &ds.ListNode{Value: 6, Next: nil}
+		node = &ListNode{Val: 6, Next: nil}
 		head.Next.Next.Next.Next.Next = node
 
 		mid = f(head)
 
-		if mid.Value.(int) != 4 {
+		if mid.Val != 4 {
 			t.Error("mid is 4")
 		}
 	}
@@ -892,16 +892,16 @@ func TestCopyListWithRandomPointer(t *testing.T) {
 
 func TestPartitionList(t *testing.T) {
 	// 1->4->3->2->5->2
-	head := &ds.ListNode{Value: 1, Next: nil}
-	node := &ds.ListNode{Value: 4, Next: nil}
+	head := &ListNode{Val: 1, Next: nil}
+	node := &ListNode{Val: 4, Next: nil}
 	head.Next = node
-	node = &ds.ListNode{Value: 3, Next: nil}
+	node = &ListNode{Val: 3, Next: nil}
 	head.Next.Next = node
-	node = &ds.ListNode{Value: 2, Next: nil}
+	node = &ListNode{Val: 2, Next: nil}
 	head.Next.Next.Next = node
-	node = &ds.ListNode{Value: 5, Next: nil}
+	node = &ListNode{Val: 5, Next: nil}
 	head.Next.Next.Next.Next = node
-	node = &ds.ListNode{Value: 2, Next: nil}
+	node = &ListNode{Val: 2, Next: nil}
 	head.Next.Next.Next.Next.Next = node
 
 	//1->2->2->4->3->5
@@ -909,48 +909,48 @@ func TestPartitionList(t *testing.T) {
 
 	p := res
 	for p != nil {
-		fmt.Println(p.Value)
+		fmt.Println(p.Val)
 		p = p.Next
 	}
 
-	if res.Value.(int) != 1 ||
-		res.Next.Value.(int) != 2 ||
-		res.Next.Next.Value.(int) != 2 ||
-		res.Next.Next.Next.Value.(int) != 4 ||
-		res.Next.Next.Next.Next.Value.(int) != 3 ||
-		res.Next.Next.Next.Next.Next.Value.(int) != 5 {
+	if res.Val != 1 ||
+		res.Next.Val != 2 ||
+		res.Next.Next.Val != 2 ||
+		res.Next.Next.Next.Val != 4 ||
+		res.Next.Next.Next.Next.Val != 3 ||
+		res.Next.Next.Next.Next.Next.Val != 5 {
 		t.Error("1->2->2->4->3->5")
 	}
 }
 
 func TestRotateListRight(t *testing.T) {
 	// 0->1->2->4->8
-	head := &ds.ListNode{Value: 0, Next: nil}
-	node := &ds.ListNode{Value: 1, Next: nil}
+	head := &ListNode{Val: 0, Next: nil}
+	node := &ListNode{Val: 1, Next: nil}
 	head.Next = node
-	node = &ds.ListNode{Value: 2, Next: nil}
+	node = &ListNode{Val: 2, Next: nil}
 	head.Next.Next = node
-	node = &ds.ListNode{Value: 4, Next: nil}
+	node = &ListNode{Val: 4, Next: nil}
 	head.Next.Next.Next = node
-	node = &ds.ListNode{Value: 8, Next: nil}
+	node = &ListNode{Val: 8, Next: nil}
 	head.Next.Next.Next.Next = node
 
 	res := rotateListRight(head, 3)
 
 	// 2->4->8->0->1
-	if res.Value.(int) != 2 ||
-		res.Next.Value.(int) != 4 ||
-		res.Next.Next.Value.(int) != 8 ||
-		res.Next.Next.Next.Value.(int) != 0 ||
-		res.Next.Next.Next.Next.Value.(int) != 1 {
+	if res.Val != 2 ||
+		res.Next.Val != 4 ||
+		res.Next.Next.Val != 8 ||
+		res.Next.Next.Next.Val != 0 ||
+		res.Next.Next.Next.Next.Val != 1 {
 		t.Error("2->4->8->0->1")
 	}
 }
 
 func TestBinaryTreeInorderTraversal(t *testing.T) {
-	type testFunc func(root *ds.Tree) []int
+	type testFunc func(root *TreeNode) []int
 	testBody := func(f testFunc, t *testing.T) {
-		root := ds.NewTree(1)
+		root := NewTree(1)
 
 		// left
 		l1 := root.Insert(2, true)
@@ -1021,7 +1021,7 @@ func TestClimbStairs(t *testing.T) {
 }
 
 func TestBindaryTreeLevelOrderTraversal(t *testing.T) {
-	root := ds.NewTree(3)
+	root := NewTree(3)
 
 	root.Insert(9, true)
 	r1 := root.Insert(20, false)
@@ -1062,7 +1062,7 @@ func TestGegerateParentheses(t *testing.T) {
 }
 
 func TestBindaryTreeLevelOrderTraversalII(t *testing.T) {
-	root := ds.NewTree(3)
+	root := NewTree(3)
 
 	root.Insert(9, true)
 	r1 := root.Insert(20, false)
@@ -1122,9 +1122,9 @@ func TestSearchInsertPosition(t *testing.T) {
 }
 
 func TestIsBalancedTree(t *testing.T) {
-	type testFunc func(root *ds.Tree) bool
+	type testFunc func(root *TreeNode) bool
 	testBody := func(f testFunc, t *testing.T) {
-		root := ds.NewTree(3)
+		root := NewTree(3)
 		root.Insert(9, true)
 		r1 := root.Insert(20, false)
 		r1.Insert(15, true)
@@ -1135,7 +1135,7 @@ func TestIsBalancedTree(t *testing.T) {
 			t.Error("is balanced tree")
 		}
 
-		root = ds.NewTree(1)
+		root = NewTree(1)
 		root.Insert(2, true)
 		l1 := root.Insert(2, true)
 		l1.Insert(3, true)

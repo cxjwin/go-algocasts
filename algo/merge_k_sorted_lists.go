@@ -1,22 +1,22 @@
 package algo
 
-import "github.com/cxjwin/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
 // https://leetcode.com/problems/merge-k-sorted-lists/
 
-func mergeKSortedLists(lists []*ds.ListNode) *ds.ListNode {
+func mergeKSortedLists(lists []*ListNode) *ListNode {
 	if lists == nil || len(lists) == 0 {
 		return nil
 	}
 
 	k := len(lists)
-	heads := make([]*ds.ListNode, k)
+	heads := make([]*ListNode, k)
 
 	for i := 0; i < k; i++ {
 		heads[i] = lists[i]
 	}
 
-	dummy := &ds.ListNode{Value: 0, Next: nil}
+	dummy := &ListNode{Val: 0, Next: nil}
 	p := dummy
 	for {
 		minIdx := -1
@@ -25,7 +25,7 @@ func mergeKSortedLists(lists []*ds.ListNode) *ds.ListNode {
 				if minIdx == -1 {
 					minIdx = i
 				} else {
-					if heads[i].Value.(int) < heads[minIdx].Value.(int) {
+					if heads[i].Val < heads[minIdx].Val {
 						minIdx = i
 					}
 				}
@@ -44,7 +44,7 @@ func mergeKSortedLists(lists []*ds.ListNode) *ds.ListNode {
 	return dummy.Next
 }
 
-func mergeListsRecursive(lists []*ds.ListNode, l int, r int) *ds.ListNode {
+func mergeListsRecursive(lists []*ListNode, l int, r int) *ListNode {
 	if l == r {
 		return lists[l]
 	}
@@ -58,20 +58,20 @@ func mergeListsRecursive(lists []*ds.ListNode, l int, r int) *ds.ListNode {
 	return mergeTwoSortedList(l1, l2)
 }
 
-func mergeKSortedListsDivideConquer(lists []*ds.ListNode) *ds.ListNode {
+func mergeKSortedListsDivideConquer(lists []*ListNode) *ListNode {
 	if lists == nil || len(lists) == 0 {
 		return nil
 	}
 	return mergeListsRecursive(lists, 0, len(lists)-1)
 }
 
-func mergeKSortedListsOneByOne(lists []*ds.ListNode) *ds.ListNode {
+func mergeKSortedListsOneByOne(lists []*ListNode) *ListNode {
 	if lists == nil || len(lists) == 0 {
 		return nil
 	}
 
 	k := len(lists)
-	var head *ds.ListNode
+	var head *ListNode
 	for i := 0; i < k; i++ {
 		if head == nil {
 			head = lists[i]
@@ -83,9 +83,9 @@ func mergeKSortedListsOneByOne(lists []*ds.ListNode) *ds.ListNode {
 	return head
 }
 
-func addToMinSlice(nodes []*ds.ListNode, node *ds.ListNode) []*ds.ListNode {
+func addToMinSlice(nodes []*ListNode, node *ListNode) []*ListNode {
 	if nodes == nil {
-		return []*ds.ListNode{node}
+		return []*ListNode{node}
 	}
 
 	if len(nodes) == 0 {
@@ -94,7 +94,7 @@ func addToMinSlice(nodes []*ds.ListNode, node *ds.ListNode) []*ds.ListNode {
 
 	idx := len(nodes)
 	for i := 0; i < len(nodes); i++ {
-		if node.Value.(int) <= nodes[i].Value.(int) {
+		if node.Val <= nodes[i].Val {
 			idx = i
 			break
 		}
@@ -107,7 +107,7 @@ func addToMinSlice(nodes []*ds.ListNode, node *ds.ListNode) []*ds.ListNode {
 	return s
 }
 
-func removeFristFromMinSlice(nodes []*ds.ListNode) []*ds.ListNode {
+func removeFristFromMinSlice(nodes []*ListNode) []*ListNode {
 	if nodes == nil || len(nodes) == 0 {
 		return nodes
 	}
@@ -115,12 +115,12 @@ func removeFristFromMinSlice(nodes []*ds.ListNode) []*ds.ListNode {
 	return nodes[1:]
 }
 
-func mergeKSortedListsMinClice(lists []*ds.ListNode) *ds.ListNode {
+func mergeKSortedListsMinClice(lists []*ListNode) *ListNode {
 	if lists == nil || len(lists) == 0 {
 		return nil
 	}
 
-	heads := make([]*ds.ListNode, 0)
+	heads := make([]*ListNode, 0)
 
 	for _, v := range lists {
 		if v != nil {
@@ -128,7 +128,7 @@ func mergeKSortedListsMinClice(lists []*ds.ListNode) *ds.ListNode {
 		}
 	}
 
-	dummy := &ds.ListNode{Value: 0, Next: nil}
+	dummy := &ListNode{Val: 0, Next: nil}
 	p := dummy
 
 	for {

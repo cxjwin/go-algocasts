@@ -1,5 +1,7 @@
 package leetcode144
 
+import . "github.com/cxjwin/go-algocasts/datastructure"
+
 import "testing"
 
 func TestPreorderTraversal(t *testing.T) {

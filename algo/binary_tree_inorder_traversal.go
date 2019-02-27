@@ -1,23 +1,23 @@
 package algo
 
-import "github.com/cxjwin/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 import "github.com/golang-collections/collections/stack"
 
 // https://leetcode.com/problems/binary-tree-inorder-traversal/
 
-func binaryTreeInorderTraversal(root *ds.Tree) []int {
+func binaryTreeInorderTraversal(root *TreeNode) []int {
 	if root == nil {
 		return make([]int, 0)
 	}
 
 	left := binaryTreeInorderTraversal(root.Left)
-	res := append(left, root.Value.(int))
+	res := append(left, root.Val)
 	right := binaryTreeInorderTraversal(root.Right)
 	res = append(res, right...)
 	return res
 }
 
-func binaryTreeInorderTraversalIterative(root *ds.Tree) []int {
+func binaryTreeInorderTraversalIterative(root *TreeNode) []int {
 	if root == nil {
 		return make([]int, 0)
 	}
@@ -32,9 +32,9 @@ func binaryTreeInorderTraversalIterative(root *ds.Tree) []int {
 			}
 			root = root.Left
 		}
-		root = stack.Pop().(*ds.Tree)
+		root = stack.Pop().(*TreeNode)
 		if root != nil {
-			res = append(res, root.Value.(int))
+			res = append(res, root.Val)
 			root = root.Right
 		}
 	}
