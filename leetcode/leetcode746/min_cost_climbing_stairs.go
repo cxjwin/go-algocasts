@@ -40,8 +40,8 @@ func minCostClimbingStairsO1(cost []int) int {
 	fir, sec := cost[0], cost[1]
 	for i := 2; i < n; i++ {
 		cur := min(fir, sec) + cost[i]
-		sec = fir
-		fir = cur
+		fir = sec
+		sec = cur
 	}
 	return min(fir, sec)
 }
