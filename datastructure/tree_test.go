@@ -1,6 +1,8 @@
 package ds
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestTree(t *testing.T) {
 	tree := NewTree(1)
@@ -20,4 +22,35 @@ func TestTree(t *testing.T) {
 	}
 
 	tree.Desc()
+}
+
+func TestBuildTree(t *testing.T) {
+	nums := []interface{}{3, 2, 3, nil, 3, nil, 1}
+	root := BuildTree(nums)
+
+	//      3
+	//     / \
+	//    2   3
+	//     \   \
+	//      3   1
+	if root.Val != 3 ||
+		root.Left.Val != 2 ||
+		root.Left.Right.Val != 3 ||
+		root.Right.Val != 3 ||
+		root.Right.Right.Val != 1 {
+		t.Error("1 - build error")
+	}
+
+	nums = []interface{}{1, nil, 2, nil, 4}
+	root = BuildTree(nums)
+	//      1
+	//       \
+	//        2
+	//         \
+	//          4
+	if root.Val != 1 ||
+		root.Right.Val != 2 ||
+		root.Right.Right.Val != 4 {
+		t.Error("2 - build error")
+	}
 }

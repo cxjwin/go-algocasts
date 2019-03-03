@@ -8,6 +8,22 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// List2Array - convert list to array
+func List2Array(head *ListNode) []int {
+	if head == nil {
+		return nil
+	}
+
+	arr := make([]int, 0)
+	p := head
+	for p != nil {
+		arr = append(arr, p.Val)
+		p = p.Next
+	}
+
+	return arr
+}
+
 // List - list
 type List struct {
 	Len  int
