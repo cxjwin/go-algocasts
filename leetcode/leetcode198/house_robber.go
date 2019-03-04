@@ -46,5 +46,5 @@ func robO1(nums []int) int {
 		prev1 = cur
 	}
 
-	return prev2
+	return prev1
 }
