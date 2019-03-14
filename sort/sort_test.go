@@ -11,6 +11,36 @@ func getFunctionName(f interface{}) string {
 	return runtime.FuncForPC(reflect.ValueOf(f).Pointer()).Name()
 }
 
+func TestBubbleSort(t *testing.T) {
+	type testFunc func(nums []int)
+
+	testBody := func(f testFunc, t *testing.T) {
+		nums := []int{1, 4, 5, 6, 2, 9, 8, 7, 3, 5, 2, 12}
+		res := []int{1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 9, 12}
+
+		f(nums)
+
+		if !reflect.DeepEqual(nums, res) {
+			fmt.Println(nums)
+			t.Error(getFunctionName(f))
+		}
+	}
+
+	testBody(bubbleSort, t)
+}
+
+func TestInsertitonSort(t *testing.T) {
+	nums := []int{1, 4, 5, 6, 2, 9, 8, 7, 3, 5, 2, 12}
+	res := []int{1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 9, 12}
+
+	insertionSort(nums)
+
+	if !reflect.DeepEqual(nums, res) {
+		fmt.Println(nums)
+		t.Error(getFunctionName(insertionSort))
+	}
+}
+
 func TestSortFunc(t *testing.T) {
 	type testFunc func(nums []int)
 
@@ -60,13 +90,20 @@ func TestBucketSort(t *testing.T) {
 }
 
 func TestMergeSort(t *testing.T) {
-	nums := []int{1, 4, 5, 6, 2, 9, 8, 7, 3, 5, 2, 12}
-	res := []int{1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 9, 12}
+	type testFunc func([]int, int, int)
 
-	mergeSort(nums, 0, len(nums)-1)
+	testBody := func(f testFunc, t *testing.T) {
+		nums := []int{1, 4, 5, 6, 2, 9, 8, 7, 3, 5, 2, 12}
+		res := []int{1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 9, 12}
 
-	if !reflect.DeepEqual(nums, res) {
-		fmt.Println(nums)
-		t.Error("mergeSort")
+		f(nums, 0, len(nums)-1)
+
+		if !reflect.DeepEqual(nums, res) {
+			fmt.Println(nums)
+			t.Error("mergeSort")
+		}
 	}
+
+	testBody(mergeSort, t)
+	testBody(mergeSortWithGuard, t)
 }
