@@ -22,7 +22,7 @@ func maxSlidingWindow(nums []int, k int) []int {
 	maxFromLeft[0] = nums[0]
 	maxFromRight[n-1] = nums[n-1]
 
-	for i, j := 1, n-2; i < n-1; i, j = i+1, j-1 {
+	for i, j := 1, n-2; i < n; i, j = i+1, j-1 {
 		if i%k == 0 {
 			maxFromLeft[i] = nums[i]
 		} else {
@@ -37,7 +37,7 @@ func maxSlidingWindow(nums []int, k int) []int {
 	}
 
 	for i := 0; i <= n-k; i++ {
-		res[i] = max(maxFromLeft[i], maxFromRight[i+k-1])
+		res[i] = max(maxFromRight[i], maxFromLeft[i+k-1])
 	}
 
 	return res
