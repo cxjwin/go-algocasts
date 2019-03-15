@@ -39,3 +39,48 @@ func longestConsecutive(nums []int) int {
 
 	return m
 }
+
+func longestConsecutiveWithMap(nums []int) int {
+	if nums == nil || len(nums) == 0 {
+		return 0
+	}
+
+	m := make(map[int]int)
+
+	maxL := 0
+
+	for _, v := range nums {
+		m[v] = v
+	}
+
+	n := len(nums)
+
+	for i := 0; i < n && len(m) != 0; i++ {
+		delete(m, nums[i])
+		low, high := nums[i], nums[i]
+
+		for true {
+			low--
+			_, ok := m[low]
+			if ok {
+				delete(m, low)
+			} else {
+				break
+			}
+		}
+
+		for true {
+			high++
+			_, ok := m[high]
+			if ok {
+				delete(m, high)
+			} else {
+				break
+			}
+		}
+
+		maxL = max(maxL, high-low-1)
+	}
+
+	return maxL
+}

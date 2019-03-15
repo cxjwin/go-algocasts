@@ -76,7 +76,7 @@ func mergeSort(nums []int, l int, r int) {
 	}
 
 	// Same as (l+r)/2, but avoids overflow for
-	// large l and h
+	// large l and r
 	m := l + (r-l)/2
 
 	// Sort first and second halves
@@ -93,7 +93,7 @@ func mergeSortWithGuard(nums []int, l int, r int) {
 	}
 
 	// Same as (l+r)/2, but avoids overflow for
-	// large l and h
+	// large l and r
 	m := l + (r-l)/2
 
 	// Sort first and second halves

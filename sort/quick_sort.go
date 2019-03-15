@@ -90,18 +90,22 @@ func quickSort2(nums []int) {
 }
 
 func partion3(nums []int, left int, right int, pivotIndex int) int {
-	pivot := nums[pivotIndex]
-	utils.Swap(nums, pivotIndex, right)
-	storeIndex := left
+	if pivotIndex != right {
+		utils.Swap(nums, pivotIndex, right)
+	}
 
-	for i := left; i < right; i++ {
-		if nums[i] < pivot {
-			utils.Swap(nums, storeIndex, i)
-			storeIndex++
+	pivot := nums[right]
+	i := left
+
+	// from left to right-1
+	for j := left; j < right; j++ {
+		if nums[j] < pivot {
+			utils.Swap(nums, i, j)
+			i++
 		}
 	}
-	utils.Swap(nums, right, storeIndex)
-	return storeIndex
+	utils.Swap(nums, i, right)
+	return i
 }
 
 func quickSortBody3(nums []int, left int, right int) {
