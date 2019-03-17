@@ -34,3 +34,39 @@ func lengthOfLIS(nums []int) int {
 
 	return d[n-1]
 }
+
+func binarySearch(nums []int, l int, x int) int {
+	low, high := 0, l-1
+
+	for low <= high {
+		mid := low + (high-low)/2
+		if x > nums[mid] {
+			low = mid + 1
+		} else if x < nums[mid] {
+			high = mid - 1
+		} else {
+			return mid
+		}
+	}
+
+	return low
+}
+
+func lengthOfLISBinarySearch(nums []int) int {
+	if nums == nil || len(nums) == 0 {
+		return 0
+	}
+
+	d := make([]int, len(nums))
+	l := 0
+
+	for _, v := range nums {
+		i := binarySearch(d, l, v)
+		d[i] = v
+		if i == l {
+			l++
+		}
+	}
+
+	return l
+}
