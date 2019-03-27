@@ -24,6 +24,23 @@ func List2Array(head *ListNode) []int {
 	return arr
 }
 
+// Array2List - convert array to list
+func Array2List(nums []int) *ListNode {
+	if nums == nil || len(nums) == 0 {
+		return nil
+	}
+
+	dummy := &ListNode{}
+	p := dummy
+	for _, v := range nums {
+		node := &ListNode{Val: v, Next: nil}
+		p.Next = node
+		p = p.Next
+	}
+
+	return dummy.Next
+}
+
 // List - list
 type List struct {
 	Len  int

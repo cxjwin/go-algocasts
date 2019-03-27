@@ -34,3 +34,16 @@ func TestLinkedList(t *testing.T) {
 
 	list.Desc()
 }
+
+func TestArray2List(t *testing.T) {
+	nums := []int{1, 2, 3, 4, 5}
+	head := Array2List(nums)
+
+	if head.Val != 1 ||
+		head.Next.Val != 2 ||
+		head.Next.Next.Val != 3 ||
+		head.Next.Next.Next.Val != 4 ||
+		head.Next.Next.Next.Next.Val != 5 {
+		t.Error("1->2->3->4->5->nil")
+	}
+}
