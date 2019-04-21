@@ -1,5 +1,7 @@
 package leetcode10
 
+// https://leetcode.com/problems/regular-expression-matching/submissions/
+
 func isMatch(s string, p string) bool {
 	if p == "*" {
 		return false
