@@ -49,3 +49,47 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 
 	return true
 }
+
+func canFinishTopoSort(numCourses int, prerequisites [][]int) bool {
+	if numCourses <= 1 || prerequisites == nil || len(prerequisites) == 0 {
+		return true
+	}
+
+	inDegree := make([]int, numCourses)
+
+	graph := make([][]int, numCourses)
+	for i := 0; i < numCourses; i++ {
+		graph[i] = make([]int, 0)
+	}
+
+	for _, v := range prerequisites {
+		arr := graph[v[1]]
+		arr = append(arr, v[0])
+		graph[v[1]] = arr
+		inDegree[v[0]]++
+	}
+
+	queue := make([]int, 0)
+	for i, v := range inDegree {
+		if v == 0 {
+			queue = append(queue, i)
+		}
+	}
+
+	count := 0
+
+	for len(queue) != 0 {
+		idx := queue[len(queue)-1]
+		queue = queue[:len(queue)-1]
+
+		count++
+		for _, i := range graph[idx] {
+			inDegree[i]--
+			if inDegree[i] == 0 {
+				queue = append(queue, i)
+			}
+		}
+	}
+
+	return count == numCourses
+}
