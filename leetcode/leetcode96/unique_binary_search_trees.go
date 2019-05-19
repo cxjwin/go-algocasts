@@ -16,3 +16,15 @@ func numTrees(n int) int {
 
 	return d[n]
 }
+
+func numTreesOn(n int) int {
+	if n < 0 {
+		return 0
+	}
+
+	var res int64 = 1
+	for k := 1; k <= n; k++ {
+		res = res * int64(n+k) / int64(k)
+	}
+	return int(res / int64(n+1))
+}
