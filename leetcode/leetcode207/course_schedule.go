@@ -2,7 +2,7 @@ package leetcode207
 
 // https://leetcode.com/problems/course-schedule/
 
-func hasCycle(graph map[int][]int, checked []bool, visited []bool, v int) bool {
+func hasCycle(graph [][]int, checked []bool, visited []bool, v int) bool {
 	if visited[v] {
 		return true
 	}
@@ -16,7 +16,6 @@ func hasCycle(graph map[int][]int, checked []bool, visited []bool, v int) bool {
 	}
 
 	checked[v] = true
-	visited[v] = false
 
 	return false
 }
@@ -26,23 +25,22 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 		return true
 	}
 
-	m := make(map[int][]int)
+	graph := make([][]int, numCourses)
+	for i := 0; i < numCourses; i++ {
+		graph[i] = make([]int, 0)
+	}
 
-	for _, pair := range prerequisites {
-		arr, ok := m[pair[1]]
-		if !ok {
-			arr = []int{pair[0]}
-		} else {
-			arr = append(arr, pair[0])
-		}
-		m[pair[1]] = arr
+	for _, v := range prerequisites {
+		idx := v[1]
+		val := v[0]
+		graph[idx] = append(graph[idx], val)
 	}
 
 	checked := make([]bool, numCourses)
-	visited := make([]bool, numCourses)
 
 	for i := 0; i < numCourses; i++ {
-		if !checked[i] && hasCycle(m, checked, visited, i) {
+		visited := make([]bool, numCourses)
+		if !checked[i] && hasCycle(graph, checked, visited, i) {
 			return false
 		}
 	}
@@ -55,38 +53,40 @@ func canFinishTopoSort(numCourses int, prerequisites [][]int) bool {
 		return true
 	}
 
-	inDegree := make([]int, numCourses)
-
 	graph := make([][]int, numCourses)
 	for i := 0; i < numCourses; i++ {
 		graph[i] = make([]int, 0)
 	}
 
+	inDegrees := make([]int, numCourses)
 	for _, v := range prerequisites {
+		// set graph
 		arr := graph[v[1]]
 		arr = append(arr, v[0])
 		graph[v[1]] = arr
-		inDegree[v[0]]++
+		// set inDegrees
+		inDegrees[v[0]]++
 	}
 
 	queue := make([]int, 0)
-	for i, v := range inDegree {
+	for i, v := range inDegrees {
 		if v == 0 {
 			queue = append(queue, i)
 		}
 	}
 
 	count := 0
-
 	for len(queue) != 0 {
+		// pop
 		idx := queue[len(queue)-1]
 		queue = queue[:len(queue)-1]
-
 		count++
-		for _, i := range graph[idx] {
-			inDegree[i]--
-			if inDegree[i] == 0 {
-				queue = append(queue, i)
+
+		arr := graph[idx]
+		for _, v := range arr {
+			inDegrees[v]--
+			if inDegrees[v] == 0 {
+				queue = append(queue, v)
 			}
 		}
 	}
