@@ -2,6 +2,21 @@ package leetcode207
 
 import "testing"
 
+func TestHasCycle(t *testing.T) {
+	input := [][]int{
+		{1},
+		{2},
+		{0},
+	}
+
+	checked := make([]bool, 3)
+	visited := make([]bool, 3)
+	res := hasCycle(input, checked, visited, 0)
+	if !res {
+		t.Error("has cycle")
+	}
+}
+
 func TestCanFinish(t *testing.T) {
 	type testFunc func(int, [][]int) bool
 

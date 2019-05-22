@@ -17,7 +17,6 @@ func hasCycle(graph map[int][]int, checked []bool, visited []bool, order *[]int,
 
 	*order = append(*order, v)
 	checked[v] = true
-	visited[v] = false
 
 	return false
 }
@@ -39,11 +38,11 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 	}
 
 	checked := make([]bool, numCourses)
-	visited := make([]bool, numCourses)
 	temp := make([]int, 0)
 	res := &temp
 
 	for i := 0; i < numCourses; i++ {
+		visited := make([]bool, numCourses)
 		if !checked[i] && hasCycle(m, checked, visited, res, i) {
 			return []int{}
 		}
@@ -53,6 +52,52 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 	output := make([]int, n)
 	for i := 0; i < n; i++ {
 		output[n-1-i] = (*res)[i]
+	}
+
+	return output
+}
+
+func findOrderTopoSort(numCourses int, prerequisites [][]int) []int {
+	if numCourses <= 1 || prerequisites == nil || len(prerequisites) == 0 {
+		return []int{}
+	}
+
+	graph := make([][]int, numCourses)
+	for i := 0; i < numCourses; i++ {
+		graph[i] = make([]int, 0)
+	}
+
+	inDegrees := make([]int, numCourses)
+	for _, v := range prerequisites {
+		arr := graph[v[1]]
+		arr = append(arr, v[0])
+		graph[v[1]] = arr
+
+		inDegrees[v[0]]++
+	}
+
+	st := make([]int, 0)
+	for _, v := range inDegrees {
+		if v == 0 {
+			st = append(st, v)
+		}
+	}
+
+	output := make([]int, 0)
+
+	for len(st) != 0 {
+		idx := st[len(st)-1]
+		st = st[:len(st)-1]
+
+		output = append(output, idx)
+
+		arr := graph[idx]
+		for _, v := range arr {
+			inDegrees[v]--
+			if inDegrees[v] == 0 {
+				st = append(st, v)
+			}
+		}
 	}
 
 	return output
