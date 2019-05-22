@@ -68,25 +68,25 @@ func canFinishTopoSort(numCourses int, prerequisites [][]int) bool {
 		inDegrees[v[0]]++
 	}
 
-	queue := make([]int, 0)
+	st := make([]int, 0)
 	for i, v := range inDegrees {
 		if v == 0 {
-			queue = append(queue, i)
+			st = append(st, i)
 		}
 	}
 
 	count := 0
-	for len(queue) != 0 {
+	for len(st) != 0 {
 		// pop
-		idx := queue[len(queue)-1]
-		queue = queue[:len(queue)-1]
+		idx := st[len(st)-1]
+		st = st[:len(st)-1]
 		count++
 
 		arr := graph[idx]
 		for _, v := range arr {
 			inDegrees[v]--
 			if inDegrees[v] == 0 {
-				queue = append(queue, v)
+				st = append(st, v)
 			}
 		}
 	}
