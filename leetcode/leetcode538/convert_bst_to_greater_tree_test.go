@@ -1,7 +1,8 @@
 package leetcode538
 
 import (
-	. "algocasts/datastructure"
+	. "github.com/cxjwin/go-algocasts/datastructure"
+
 	"testing"
 )
 
