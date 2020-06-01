@@ -1,7 +1,7 @@
 package leetcode142
 
 import (
-	. "github.com/cxjwin/go-algocasts/datastructure"
+	. "cxjwin.com/go-algocasts/datastructure"
 )
 
 // https://leetcode.com/problems/linked-list-cycle-ii/

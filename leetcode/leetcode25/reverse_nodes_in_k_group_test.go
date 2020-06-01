@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	. "github.com/cxjwin/go-algocasts/datastructure"
+	. "cxjwin.com/go-algocasts/datastructure"
 )
 
 func TestReverse(t *testing.T) {

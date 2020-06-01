@@ -1,7 +1,7 @@
 package leetcode538
 
 import (
-	. "github.com/cxjwin/go-algocasts/datastructure"
+	. "cxjwin.com/go-algocasts/datastructure"
 )
 
 func dfs(root *TreeNode, sum int) int {

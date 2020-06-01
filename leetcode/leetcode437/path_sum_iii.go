@@ -1,6 +1,6 @@
 package leetcode437
 
-import . "github.com/cxjwin/go-algocasts/datastructure"
+import . "cxjwin.com/go-algocasts/datastructure"
 
 func pathFrom(root *TreeNode, sum int) int {
 	if root == nil {

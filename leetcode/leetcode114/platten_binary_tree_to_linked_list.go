@@ -1,6 +1,6 @@
 package leetcode114
 
-import . "github.com/cxjwin/go-algocasts/datastructure"
+import . "cxjwin.com/go-algocasts/datastructure"
 
 // https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
 

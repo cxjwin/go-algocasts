@@ -1,7 +1,7 @@
 package leetcode543
 
 import (
-	. "github.com/cxjwin/go-algocasts/datastructure"
+	. "cxjwin.com/go-algocasts/datastructure"
 )
 
 func max(a int, b int) int {

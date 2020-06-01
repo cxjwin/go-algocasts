@@ -4,7 +4,7 @@ import (
 	"hash/fnv"
 	"strconv"
 
-	. "github.com/cxjwin/go-algocasts/datastructure"
+	. "cxjwin.com/go-algocasts/datastructure"
 )
 
 // https://leetcode.com/problems/subtree-of-another-tree/
