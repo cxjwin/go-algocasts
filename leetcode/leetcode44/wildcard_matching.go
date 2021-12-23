@@ -21,7 +21,7 @@ func isMatch(s string, p string) bool {
 				d[i+1][j+1] = d[i][j]
 			}
 			if p[j] == '*' {
-				d[i+1][j+1] = (d[i][j] || d[i][j+1] || d[i+1][j])
+				d[i+1][j+1] = d[i][j] || d[i][j+1] || d[i+1][j]
 			}
 		}
 	}

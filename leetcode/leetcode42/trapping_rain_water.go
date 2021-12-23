@@ -33,7 +33,7 @@ func trap(height []int) int {
 	for j := len(height) - 1; j >= 0; j-- {
 		rightMax = max(rightMax, height[j])
 		d[j] = min(d[j], rightMax)
-		sum += (d[j] - height[j])
+		sum += d[j] - height[j]
 	}
 	return sum
 }

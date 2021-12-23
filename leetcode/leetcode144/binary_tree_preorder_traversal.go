@@ -1,6 +1,6 @@
 package leetcode144
 
-import . "cxjwin.com/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
 // https://leetcode.com/problems/binary-tree-preorder-traversal/
 

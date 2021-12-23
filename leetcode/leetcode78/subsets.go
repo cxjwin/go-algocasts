@@ -35,9 +35,9 @@ func subsetsBits(nums []int) [][]int {
 	n := len(nums)
 	N := int(math.Pow(2, float64(n)))
 
-	res := [][]int{}
+	var res [][]int
 	for i := 0; i < N; i++ {
-		elem := []int{}
+		var elem []int
 		for j := 0; j < n; j++ {
 			if i>>uint(j)&1 == 1 {
 				elem = append(elem, nums[j])

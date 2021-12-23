@@ -3,7 +3,6 @@ package leetcode20
 // https://leetcode.com/problems/valid-parentheses/description/
 
 func isValid(s string) bool {
-	// m := map[rune]rune{')': '(', ']': '[', '}': '{'}
 	m := map[rune]rune{'(': ')', '[': ']', '{': '}'}
 
 	stack := make([]rune, 0)
@@ -25,5 +24,5 @@ func isValid(s string) bool {
 		}
 	}
 
-	return (len(stack) == 0)
+	return len(stack) == 0
 }

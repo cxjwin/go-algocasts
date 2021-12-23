@@ -1,6 +1,6 @@
 package leetcode450
 
-import . "cxjwin.com/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
 // https://leetcode.com/problems/delete-node-in-a-bst/
 
@@ -19,7 +19,7 @@ func deleteNode(root *TreeNode, key int) *TreeNode {
 		} else if root.Right == nil {
 			return root.Left
 		}
-	
+
 		leftMax := root.Left
 		for leftMax.Right != nil {
 			leftMax = leftMax.Right

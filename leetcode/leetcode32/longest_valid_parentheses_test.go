@@ -2,7 +2,7 @@ package leetcode32
 
 import "testing"
 
-func TestLongestVaildParentheses(t *testing.T) {
+func TestLongestValidParentheses(t *testing.T) {
 	type testFunc func(string) int
 
 	testBody := func(f testFunc, t *testing.T) {

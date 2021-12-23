@@ -1,6 +1,6 @@
 package lintcode1307
 
-import . "cxjwin.com/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
 // https://www.lintcode.com/problem/verify-preorder-sequence-in-binary-search-tree/
 

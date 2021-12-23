@@ -1,6 +1,6 @@
 package leetcode235
 
-import . "cxjwin.com/go-algocasts/datastructure"
+import . "github.com/cxjwin/go-algocasts/datastructure"
 
 // https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 

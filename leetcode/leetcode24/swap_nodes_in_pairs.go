@@ -32,7 +32,7 @@ func swapPairs(head *ListNode) *ListNode {
 	}
 
 	if fir != nil && sec == nil {
-		fir.Next = nil;
+		fir.Next = nil
 	}
 
 	return head

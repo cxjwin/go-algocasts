@@ -2,7 +2,7 @@ package leetcode91
 
 import "testing"
 
-func TestNumDecodings(t *testing.T) {
+func TestNumDecoding(t *testing.T) {
 	type testFunc func(string) int
 	testBody := func(f testFunc, t *testing.T) {
 		s := "12"
@@ -29,7 +29,7 @@ func TestNumDecodings(t *testing.T) {
 		}
 	}
 
-	testBody(numDecodings, t)
-	testBody(numDecodingsDP, t)
-	testBody(numDecodingsDPO1, t)
+	testBody(numDecoding, t)
+	testBody(numDecodingDP, t)
+	testBody(numDecodingDPO1, t)
 }

@@ -24,5 +24,5 @@ func combinationSum(candidates []int, target int) [][]int {
 	elem := &[]int{}
 	result := &[][]int{}
 	sum(candidates, target, 0, elem, result)
-	return (*result)
+	return *result
 }

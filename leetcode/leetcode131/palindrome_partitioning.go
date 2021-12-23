@@ -37,9 +37,9 @@ func partition(s string) [][]string {
 			if i == j {
 				d[i][j] = true
 			} else if i+1 == j {
-				d[i][j] = (s[i] == s[j])
+				d[i][j] = s[i] == s[j]
 			} else {
-				d[i][j] = (s[i] == s[j] && d[i+1][j-1])
+				d[i][j] = s[i] == s[j] && d[i+1][j-1]
 			}
 		}
 	}

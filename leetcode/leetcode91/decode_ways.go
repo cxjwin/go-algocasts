@@ -29,11 +29,11 @@ func decode(s string, idx int) int {
 	return num
 }
 
-func numDecodings(s string) int {
+func numDecoding(s string) int {
 	return decode(s, 0)
 }
 
-func numDecodingsDP(s string) int {
+func numDecodingDP(s string) int {
 	n := len(s)
 	if n == 0 {
 		return 0
@@ -58,7 +58,7 @@ func numDecodingsDP(s string) int {
 	return d[n]
 }
 
-func numDecodingsDPO1(s string) int {
+func numDecodingDPO1(s string) int {
 	n := len(s)
 	if n == 0 {
 		return 0
