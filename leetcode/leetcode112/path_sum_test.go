@@ -1,6 +1,10 @@
 package leetcode112
 
-import "testing"
+import (
+	"testing"
+
+	. "github.com/cxjwin/go-algocasts/datastructure"
+)
 
 func TestPathSum(t *testing.T) {
 	root := &TreeNode{Val: 5, Left: nil, Right: nil}
